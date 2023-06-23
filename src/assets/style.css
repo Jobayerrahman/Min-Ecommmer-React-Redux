@@ -1,0 +1,14 @@
+.productCardWrapper{
+    width: 23rem;
+    height: 25rem;
+    border: 1px solid #fcfcfc;
+    margin: 20px;
+    background: #d1d0d0;
+    padding: 20px;
+}
+
+.productImage{
+    object-fit: contain;
+    width: 200px;
+    height: 150px;
+}
