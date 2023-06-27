@@ -10,18 +10,18 @@ export default function Product(){
         dispatch(getAllProduct())
     },[])
     return(
-        <div>
-            <h2>Products List</h2>
+        <div className="productWrapper">
             {isLoading && <h2>Loading...</h2>}
             {errors && <h2>{errors.message}</h2>}
-            <section>
+            <h2>Products List</h2>
+            <div className="productListWrapper">
                 {products && products.map((product)=>{
                     return (<div>
-                        <Productcard title={product.title} photo={product.image} price={product.price} des={product.description} />
+                        <Productcard title={product.title} photo={product.image} price={product.price} category={product.category} />
                     </div>)
                 })
                 }
-            </section>
+            </div>
         </div>
     )
 }
