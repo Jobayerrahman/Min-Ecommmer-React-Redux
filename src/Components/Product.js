@@ -17,7 +17,7 @@ export default function Product(){
             <div className="productListWrapper">
                 {products && products.map((product)=>{
                     return (<div>
-                        <Productcard title={product.title} photo={product.image} price={product.price} des={product.description} />
+                        <Productcard title={product.title} photo={product.image} price={product.price} category={product.category} />
                     </div>)
                 })
                 }
