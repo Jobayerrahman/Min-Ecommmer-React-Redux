@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import {getAllProduct} from "../Services/Actions/ProductAction"
+import {getAllProduct} from "../../Services/Actions/ProductAction"
 import Productcard from "./Productcard";
 export default function Product(){
 
     const {isLoading,products,errors} =useSelector((state) => state);
     const dispatch = useDispatch();
-    useEffect(()=>{
-        dispatch(getAllProduct())
-    },[])
+    useEffect(()=>{dispatch(getAllProduct())},[])
+
     return(
         <div className="productsWrapper">
             <h2>Products List</h2>

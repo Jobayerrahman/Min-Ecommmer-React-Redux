@@ -1,10 +1,117 @@
 body{
     margin: 0;
     padding: 0;
+    background: #fcfcfc;
+}
+
+.topFixBanner{
+    background-image: url('./image/bannerpic.jpg');
+    min-height: 600px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.topBannerOverlay{
+    position:absolute;
+    min-height: 600px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0px 0px 20px 20px;
+}
+
+.topBannerContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 196px;
+}
+
+.topTitle{
+    color: #fff;
+    margin: 0px 0px 20px 0px;
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.topSubTitle{
+    color: #fff;
+    margin: 0px 0px 30px 0px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.bannerButton{
+    color: #fff;
+    margin: 5px;
+    padding: 12px;
+    background: #020202;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.bannerButton:hover{
+    color: #fff;
+    background: #2b2b2b;
+}
+
+.cetagoryWrapper{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: -60px;
+}
+
+.cetagoryCardWrapper{
+    width: 14rem;
+    height: 6rem;
+    background: #fff;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.cetagoryImage{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.cetagoryCardContent{
+    display: flex;
+    position: absolute;
+    top: 10px;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(28 28 28 / 50%);
+    height: 6rem;
+    width: 14rem;
+    cursor: pointer;
+}
+
+.cetagoryCardContent h2{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0px 10px;
+}
+.cetagoryCardContent span{
+    color: #fff;
+    font-size: 16px;
+    margin: 0px 10px;
 }
 
 .productsWrapper{
-    background: #f1f1f1;
+    background: #fcfcfc;
+    padding: 50px 20px;
 }
 
 .productsWrapper h2{
@@ -16,13 +123,13 @@ body{
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 }
 
 .productCardWrapper{
     width: 23rem;
-    height: auto;
-    border: 1px solid #fcfcfc;
+    height: 25rem;
+    border: 1px solid #f0f0f0;
     margin: 20px;
     background: #fff;
     padding: 20px;
@@ -45,4 +152,10 @@ body{
 
 .productCardWrapper a:hover{
     color: #4602ff;
+}
+
+@media only screen and (max-width: 1024px) {
+    .productCardWrapper{
+        width: 18rem;
+    }
 }
