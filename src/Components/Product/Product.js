@@ -11,8 +11,13 @@ export default function Product(){
     useEffect(()=>{dispatch(getAllProduct())},[])
 
     const handleWomenFasion=()=>{
-        console.log("Women fasion");
-        const product = products.filter((product)=> product.category === "men's clothing");
+        const items = products.filter((product)=> product.category === "men's clothing");
+        const productlist =  items.map((item)=>{
+            return (<div>
+                <Productcard {...item} />
+            </div>)
+        })
+        setItems(productlist);
     }
 
     const handleMenFasion=()=>{
@@ -38,10 +43,10 @@ export default function Product(){
             {errors && <h2>{errors.message}</h2>}
             <div className="productListWrapper">
                 {products && products.map((product)=>{
-                    return (<div>
-                        <Productcard {...product} />
-                    </div>)
-                })
+                        return (<div>
+                            <Productcard {...product} />
+                        </div>)
+                    })
                 }
             </div>
         </div>
