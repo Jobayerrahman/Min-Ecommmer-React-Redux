@@ -6,26 +6,31 @@ export default function Product(){
 
     const {isLoading,products,errors} =useSelector((state) => state);
 
-    const {items, setItems} = useState([]);
+    const [fasions, setFasions] = useState([]);
     const dispatch = useDispatch();
     useEffect(()=>{dispatch(getAllProduct())},[])
 
     const handleWomenFasion=()=>{
-        console.log("Women fasion");
-        const product = products.filter((product)=> product.category === "men's clothing");
+        const product = products.filter((product)=> product.category === "women's clothing");
+        setFasions(product);
     }
 
     const handleMenFasion=()=>{
-        console.log("men fasion");
+        const product = products.filter((product)=> product.category === "men's clothing");
+        setFasions(product);
     }
 
     const handleElectronics=()=>{
-        console.log("elec");
+        const product = products.filter((product)=> product.category === "electronics");
+        setFasions(product);
     }
 
     const handleAccessories=()=>{
-        console.log("access");
+        const product = products.filter((product)=> product.category === "jewelery");
+        setFasions(product);
     }
+
+    const fasionCetagory = fasions.map((fasion)=><Productcard {...fasion} />)
 
     return(
         <div className="productsWrapper">
@@ -41,8 +46,13 @@ export default function Product(){
                     return (<div>
                         <Productcard {...product} />
                     </div>)
-                })
+                    })
                 }
+            </div>
+            <br></br>
+
+            <div className="productListWrapper">
+                {fasionCetagory}
             </div>
         </div>
     )
