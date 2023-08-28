@@ -1,7 +1,7 @@
 import React from 'react';
-function Cetagorycard({image,title,number}) {
+function Cetagorycard({image,title,number,eventCetagory}) {
     return (
-        <div className='cetagoryCardWrapper'>
+        <div onClick={eventCetagory} className='cetagoryCardWrapper'>
             <img className='cetagoryImage' src={image}/>
             <div className='cetagoryCardContent'>
                 <h2>{title}</h2>

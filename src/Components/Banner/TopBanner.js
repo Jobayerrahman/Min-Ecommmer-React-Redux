@@ -5,7 +5,7 @@ function TopBanner(props) {
         <div className='topFixBanner'>
             <div className='topBannerOverlay'>
                 <div className='topBannerContent'>
-                    <h1 className="topTitle">Tisee E-commerce</h1>
+                    <h1 className="topTitle">mini-E-commerce</h1>
                     <h5 className="topSubTitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
                     <a className='bannerButton'>View Collection</a>
                 </div>
