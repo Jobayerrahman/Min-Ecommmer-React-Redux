@@ -19,7 +19,7 @@ body{
 }
 
 .topBannerOverlay{
-    position:absolute;
+    position:static;
     min-height: 600px;
     width: 100%;
     background-color: rgba(0,0,0,0.5);
@@ -31,7 +31,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 196px;
+    min-height: 600px;
 }
 
 .topTitle{
