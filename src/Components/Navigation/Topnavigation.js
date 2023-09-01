@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import Cartmodal from '../Modal/Cartmodal';
 function Topnavigation(props) {
     const [showModal,setShowModal] = useState(false);
-    const handlePress = () =>{
+    const handleCart = () =>{
         setShowModal(true);
-    }
+    }    
 
     const handleCloseCart = () =>{
         setShowModal(false);
+    }
+
+    const handleUser = () =>{
+        console.log("User modal");
     }
     return (
         <div>
@@ -17,8 +21,9 @@ function Topnavigation(props) {
                 flex-row 
                 bg-transparent 
                 fixed top-0 
+                bg-gray-700
                 w-full 
-                h-[60px] 
+                h-[50px] 
                 p-[10px]'>
                 <div className='basis-1/4 
                     w-full 
@@ -35,7 +40,7 @@ function Topnavigation(props) {
                     <ul className='flex text-center basis-full'>
                         <li className='text-white 
                                 font-medium 
-                                text-base p-2 
+                                text-base p-1
                                 hover:text-black 
                                 hover:bg-slate-100 
                                 hover:rounded 
@@ -44,7 +49,7 @@ function Topnavigation(props) {
                         </li>
                         <li className='text-white 
                                 font-medium 
-                                text-base p-2 
+                                text-base p-1 
                                 hover:text-black 
                                 hover:bg-slate-100 
                                 hover:rounded 
@@ -53,14 +58,22 @@ function Topnavigation(props) {
                         </li>
                     </ul>
                 </div>
-                <div className='basis-1/2 text-center'>
+                <div className='basis-1/2 text-center mt-1'>
                     <FontAwesomeIcon 
                         className='text-white 
-                        mr-2 text-lg
+                        mr-2 p-2
+                        text-lg
                         hover:cursor-pointer' 
-                        onClick={handlePress} 
+                        onClick={handleCart} 
                         icon={faBagShopping} 
                         />
+                    <FontAwesomeIcon 
+                        className='text-white 
+                        mr-2 p-2
+                        text-lg
+                        hover:cursor-pointer' 
+                        onClick={handleUser} 
+                        icon={faUser} />
                 </div>
             </div>
             <Cartmodal showCart={showModal} closeCart={handleCloseCart} ></Cartmodal>
