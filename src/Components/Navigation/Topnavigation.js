@@ -2,19 +2,26 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBagShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import Cartmodal from '../Modal/Cartmodal';
+import Authmodal from '../Modal/Authmodal';
 function Topnavigation(props) {
-    const [showModal,setShowModal] = useState(false);
+    const [showCartModal,setShowCartModal] = useState(false);
+    const [showAuthModal,setShowAuthModal] = useState(false);
     const handleCart = () =>{
-        setShowModal(true);
+        setShowCartModal(true);
     }    
 
     const handleCloseCart = () =>{
-        setShowModal(false);
+        setShowCartModal(false);
     }
 
     const handleUser = () =>{
-        console.log("User modal");
+        setShowAuthModal(true);
     }
+
+    const handleCloseAuth = () =>{
+        setShowAuthModal(false);
+    }
+
     return (
         <div>
             <div className='flex 
@@ -76,7 +83,8 @@ function Topnavigation(props) {
                         icon={faUser} />
                 </div>
             </div>
-            <Cartmodal showCart={showModal} closeCart={handleCloseCart} ></Cartmodal>
+            <Cartmodal showCart={showCartModal} closeCart={handleCloseCart} ></Cartmodal>
+            <Authmodal showAuth={showAuthModal} closeAuth={handleCloseAuth}></Authmodal>
         </div>
     );
 }

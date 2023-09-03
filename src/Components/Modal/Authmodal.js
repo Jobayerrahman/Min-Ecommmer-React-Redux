@@ -1,26 +1,25 @@
 import React from 'react';
-import '../../assets/cartmodal.css';
+import '../../assets/authmodal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-function Cartmodal({showCart,closeCart}) {
+function Authmodal({showAuth,closeAuth}) {
 
-    const showHiddenCart = showCart ? "modal display-block": "modal display-none";
+    const showHiddenAuth = showAuth ? "modal display-block": "modal display-none";
     return (
-        <div className={showHiddenCart}>
-            <div className='modal-main'>
+        <div className={showHiddenAuth}>
+            <div className='modal-auth'>
                 <div className='flex 
                         justify-between
-                        items-center'>
-                    <h2 className='text-3xl font-bold'>Cart Modal (0)</h2>
+                        items-center
+                        p-2 m-2'>
+                    <h2 className='text-xl font-bold'>Auth Modal (0)</h2>
                     <FontAwesomeIcon 
                         className='text-dark 
                         mr-2 p-2
                         text-lg
-                        bg-slate-300
-                        rounded-full
                         hover:cursor-pointer' 
-                        onClick={closeCart}
+                        onClick={closeAuth}
                         icon={faXmark} />
                 </div>
             </div>
@@ -28,4 +27,4 @@ function Cartmodal({showCart,closeCart}) {
     );
 }
 
-export default Cartmodal;
+export default Authmodal;
