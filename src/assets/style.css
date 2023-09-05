@@ -14,7 +14,7 @@ body{
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 500px;
+    padding: 10px 300px;
     background-color: rgba(00,00,00,0.0) !important;
     width: 100%;
     position: fixed;
@@ -27,7 +27,7 @@ body{
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 500px;
+    padding: 10px 300px;
     background-color: #4F4F4F !important;
     width: 100%;
     position: fixed;
@@ -228,7 +228,68 @@ body{
 }
 
 @media only screen and (max-width: 1024px) {
+    
+    .navigationWrapper{
+        padding: 10px 100px;
+    }
+    
+    .navigationScrollWrapper{
+        padding: 10px 100px;
+    }
+
+    .cetagoryWrapper{
+        margin-top: -50px;
+    }
+    .cetagoryCardWrapper{
+        width: 7rem;
+        height: 4rem;
+    }
+    .cetagoryCardContent{
+        width: 7rem;
+        height: 4rem;
+        align-content: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cetagoryCardContent h2{
+        font-size: 14px;
+        margin: 0px 5px;
+        text-align: center;
+    }
+
     .productCardWrapper{
         width: 18rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navigationWrapper{
+        padding: 20px;
+    }
+    
+    .navigationScrollWrapper{
+        padding: 20px;
+    }
+
+    .cetagoryWrapper{
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .cetagoryCardWrapper{
+        width: 4rem;
+        height: 6rem;
+    }
+    .cetagoryCardContent{
+        width: 3.7rem;
+        height: 6rem;
+        align-content: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cetagoryCardContent h2{
+        font-size: 14px;
+        margin: 0px 5px;
+        text-align: center;
     }
 }
