@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@layer components {
+    .card {
+      background-color: theme('colors.white');
+      border-radius: theme('borderRadius.lg');
+      padding: theme('spacing.2');
+      margin: theme('spacing.2');
+      box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+    }
+}
+
 body{
     margin: 0;
     padding: 0;
