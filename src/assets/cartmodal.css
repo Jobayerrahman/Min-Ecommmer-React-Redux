@@ -11,7 +11,7 @@
 .modal-main {
     position: fixed;
     background: white;
-    width: 50%;
+    width: 60%;
     height: 60%;
     top: 50%;
     left: 50%;
@@ -28,4 +28,26 @@
 
 .display-none {
   display: none;
+}
+
+@media only screen and (max-width: 2000px) {
+  .modal-main {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .modal-main {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .modal-main {
+    width: 90%;
+    height: 75%;
+  }
 }

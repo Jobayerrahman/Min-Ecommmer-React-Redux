@@ -2,6 +2,7 @@ import React from 'react';
 import '../../assets/cartmodal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import Productdetails from '../Product/Productdetails';
 
 function Productmodal({showProduct,closeProduct}) {
 
@@ -12,7 +13,7 @@ function Productmodal({showProduct,closeProduct}) {
                 <div className='flex 
                         justify-between
                         items-center'>
-                    <h2 className='text-3xl font-bold'>Product Modal (0)</h2>
+                    <h2 className='text-3xl font-bold'>Product Modal (1)</h2>
                     <FontAwesomeIcon 
                         className='text-dark 
                         mr-2 p-2
@@ -22,6 +23,9 @@ function Productmodal({showProduct,closeProduct}) {
                         hover:cursor-pointer' 
                         onClick={closeProduct}
                         icon={faXmark} />
+                </div>
+                <div>
+                    <Productdetails/>
                 </div>
             </div>
         </div>
