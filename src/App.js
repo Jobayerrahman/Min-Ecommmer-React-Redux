@@ -50,7 +50,7 @@ function App() {
     <div>
       <Topnavigation/>
       <TopBanner/>
-      <Cetagory all={handleAllFasion} women={handleWomenFasion} men={handleMenFasion} electronics={handleElectronics} accessories={handleAccessories} />
+      {/* <Cetagory all={handleAllFasion} women={handleWomenFasion} men={handleMenFasion} electronics={handleElectronics} accessories={handleAccessories} /> */}
       <Product isLoading={isLoading} products={products} errors={errors} fasionCetagory={fasionCetagory} isFasion={isFasions} />
     </div>
   );

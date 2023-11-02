@@ -40,20 +40,35 @@ function Topnavigation(props) {
         <div>
             <div className={navigationStyle}>
                 <div>
-                    <h2 className='navigationTitle'>
-                        mini-E-commerce
-                    </h2>
+                    <a className='navigationTitle'>
+                        Restura
+                    </a>
+                </div>
+                <div className='flex justify-center'>
+                    <a className='text-white font-semibold font-serif mr-4 
+                        hover:text-[#e6ac0e]  hover:cursor-pointer'>
+                        Home
+                    </a> 
+                    <a className='text-white font-semibold font-serif mr-4 
+                        hover:text-[#e6ac0e] hover:cursor-pointer'>
+                        Menu
+                    </a> 
                 </div>
                 <div>
-                    <FontAwesomeIcon 
-                        className='navigationIcon' 
-                        onClick={handleCart} 
-                        icon={faBagShopping} 
-                        />
-                    <FontAwesomeIcon 
-                        className='navigationIcon' 
-                        onClick={handleUser} 
-                        icon={faUser} />
+                    <a className='flex justify-center items-center
+                        bg-trasparnt border-2 border-gray-50 
+                        text-white font-semibold 
+                        p-2 rounded text-base
+                        hover:bg-[#e6ac0e] 
+                        hover:border-[#f8c331]
+                        hover:cursor-pointer'>
+                            Order Now
+                            <FontAwesomeIcon 
+                                className='navigationIcon' 
+                                onClick={handleCart} 
+                                icon={faBagShopping} 
+                                />
+                    </a>
                 </div>
             </div>
             <Cartmodal showCart={showCartModal} closeCart={handleCloseCart} ></Cartmodal>
