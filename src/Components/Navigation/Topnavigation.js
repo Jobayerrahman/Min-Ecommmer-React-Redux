@@ -58,16 +58,16 @@ function Topnavigation(props) {
                     <a className='flex justify-center items-center
                         bg-trasparnt border-2 border-gray-50 
                         text-white font-semibold 
-                        p-2 rounded text-base
+                        p-2 rounded text-base font-serif
                         hover:bg-[#e6ac0e] 
                         hover:border-[#f8c331]
                         hover:cursor-pointer'>
                             Order Now
-                            <FontAwesomeIcon 
+                            {/* <FontAwesomeIcon 
                                 className='navigationIcon' 
                                 onClick={handleCart} 
                                 icon={faBagShopping} 
-                                />
+                                /> */}
                     </a>
                 </div>
             </div>

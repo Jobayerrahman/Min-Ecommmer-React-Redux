@@ -7,7 +7,7 @@ export default function Product({isLoading,products,errors,fasionCetagory,isFasi
             {errors && <h2>{errors.message}</h2>}
             {!isFasion ? (
                 <div className="productListWrapper">
-                {products && products.map((product)=>{
+                {products && products.slice(0, 12).map((product)=>{
                     return (<div>
                         <Productcard {...product} />
                     </div>)

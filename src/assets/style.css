@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap')
 
 
 
@@ -40,7 +41,7 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 10px 300px;
-    background-color: #191919 !important;
+    background-color: #080808 !important;
     width: 100%;
     position: fixed;
     z-index: 999;
@@ -67,7 +68,7 @@ body{
 
 .topFixBanner{
     background-image: url('./image/banner.jpg');
-    min-height: 600px;
+    min-height: 700px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -78,7 +79,7 @@ body{
 
 .topBannerOverlay{
     position:absolute;
-    min-height: 600px;
+    min-height: 700px;
     width: 100%;
     background-color: rgba(0,0,0,0.5);
     border-radius: 0px 0px 20px 20px;
@@ -95,27 +96,29 @@ body{
 
 .topTitle{
     color: #fff;
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 30px 0px;
     font-size: 42px;
-    font-weight: 600;
+    font-weight: 500;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .topSubTitle{
-    color: #fff;
-    margin: 0px 0px 30px 0px;
-    font-size: 20px;
-    font-weight: 300;
+    color: #e6ac0e;
+    font-size: 26px;
+    font-weight: 800;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .bannerButton{
     color: #fff;
     margin: 5px;
     padding: 12px;
-    background: #e6ac0e;;
+    background: #e6ac0e;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .bannerButton:hover{
@@ -129,7 +132,7 @@ body{
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    margin-top: -60px;
+    margin-top: 60px;
     z-index: 2;
 }
 
@@ -199,12 +202,20 @@ body{
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.productCardWrapper:hover{
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.2);
 }
 
 .productImage{
     object-fit: cover;
     width: 100%;
-    height: 300px;
+    height: 250px !important;
+    border-radius: 20px;
 }
 
 .productCardContent{
@@ -216,30 +227,74 @@ body{
 
 .productCardContent h2{
     margin: 0px 10px;
-    font-size: 19px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .productCardContent h5{
     margin: 0px 10px;
-    font-size: 19px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 
 .productCardWrapper a{
     color: #fff;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     text-decoration: none;
     cursor: pointer;
     margin: 10px;
     background: #020202;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
     text-align: center;
 }
 
 .productCardWrapper a:hover{
     background: #2b2b2b;
+}
+
+.slideup-85{
+    animation: slideup-85 0.85s cubic-bezier(0.65, 0, 0.35, 1) both
+}
+
+@keyframes slideup-85{
+    0%{
+        transform: translateY(60px)
+    }
+    100%{
+        transform: translateY(0)
+    }
+  }
+
+.slideup-95{
+    animation: slideup-95 0.95s cubic-bezier(0.65, 0, 0.35, 1) both
+}
+
+@keyframes slideup-95{
+    0%{
+        transform: translateY(60px)
+    }
+    100%{
+        transform: translateY(0)
+    }
+  }
+
+.slideup-75{
+    animation: slideup-75 0.75s cubic-bezier(0.65, 0, 0.35, 1) both
+}
+
+@keyframes slideup-75{
+  0%{
+      transform: translateY(60px)
+  }
+  100%{
+      transform: translateY(0)
+  }
 }
 
 @media only screen and (max-width: 1024px) {

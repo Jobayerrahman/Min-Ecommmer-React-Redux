@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import {getAllProduct} from "./Services/Actions/ProductAction";
 import Productcard from "./Components/Product/Productcard";
 import Topnavigation from "./Components/Navigation/Topnavigation";
+import Footer from "./Components/Footer/Footer";
 function App() {
 
   const dispatch = useDispatch();
@@ -50,8 +51,9 @@ function App() {
     <div>
       <Topnavigation/>
       <TopBanner/>
-      {/* <Cetagory all={handleAllFasion} women={handleWomenFasion} men={handleMenFasion} electronics={handleElectronics} accessories={handleAccessories} /> */}
+      <Cetagory all={handleAllFasion} women={handleWomenFasion} men={handleMenFasion} electronics={handleElectronics} accessories={handleAccessories} />
       <Product isLoading={isLoading} products={products} errors={errors} fasionCetagory={fasionCetagory} isFasion={isFasions} />
+      <Footer/>
     </div>
   );
 }
