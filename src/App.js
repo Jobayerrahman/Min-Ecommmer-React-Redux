@@ -8,6 +8,7 @@ import {getAllProduct} from "./Services/Actions/ProductAction";
 import Productcard from "./Components/Product/Productcard";
 import Topnavigation from "./Components/Navigation/Topnavigation";
 import Footer from "./Components/Footer/Footer";
+import MobileBanner from "./Components/Banner/MobileBanner";
 function App() {
 
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ function App() {
       <TopBanner/>
       <Cetagory all={handleAllFasion} women={handleWomenFasion} men={handleMenFasion} electronics={handleElectronics} accessories={handleAccessories} />
       <Product isLoading={isLoading} products={products} errors={errors} fasionCetagory={fasionCetagory} isFasion={isFasions} />
+      <MobileBanner/>
       <Footer/>
     </div>
   );
