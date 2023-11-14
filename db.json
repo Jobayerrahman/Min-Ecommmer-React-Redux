@@ -46,60 +46,6 @@
             "time"      : "12:12"
         },
         {
-            "id"        : 6,
-            "title"     : "Burger OóClock",
-            "price"     : 23.54,
-            "category"  : "Buger",
-            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-6.jpg",
-            "date"      : "2023-05-02",
-            "time"      : "12:12"
-        },
-        {
-            "id"        : 7,
-            "title"     : "Burger OóClock",
-            "price"     : 23.54,
-            "category"  : "Buger",
-            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-7.jpg",
-            "date"      : "2023-05-02",
-            "time"      : "12:12"
-        },
-        {
-            "id"        : 8,
-            "title"     : "Burger OóClock",
-            "price"     : 23.54,
-            "category"  : "Buger",
-            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-8.jpg",
-            "date"      : "2023-05-02",
-            "time"      : "12:12"
-        },
-        {
-            "id"        : 9,
-            "title"     : "Burger OóClock",
-            "price"     : 23.54,
-            "category"  : "Buger",
-            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-9.jpg",
-            "date"      : "2023-05-02",
-            "time"      : "12:12"
-        },
-        {
-            "id"        : 10,
-            "title"     : "Burger OóClock",
-            "price"     : 23.54,
-            "category"  : "Buger",
-            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-10.jpg",
-            "date"      : "2023-05-02",
-            "time"      : "12:12"
-        },
-        {
-            "id"        : 11,
-            "title"     : "Burger OóClock",
-            "price"     : 23.54,
-            "category"  : "Buger",
-            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-11.jpg",
-            "date"      : "2023-05-02",
-            "time"      : "12:12"
-        },
-        {
             "id"        : 12,
             "title"     : "Pizza OóClock",
             "price"     : 23.54,
@@ -134,33 +80,49 @@
             "image"     : "http://localhost:3002/sources/assets/images/pizza/Pizza-4.jpg",
             "date"      : "2023-05-02",
             "time"      : "12:12"
+        }
+    ],
+
+    "images" :[
+        {
+            "id"        : 1,
+            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-1.jpg"
         },
         {
-            "id"        : 16,
-            "title"     : "Pizza OóClock",
-            "price"     : 23.54,
-            "category"  : "Pizza",
-            "image"     : "http://localhost:3002/sources/assets/images/pizza/Pizza-5.jpg",
-            "date"      : "2023-05-02",
-            "time"      : "12:12"
+            "id"        : 2,
+            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-2.jpg"
         },
         {
-            "id"        : 17,
-            "title"     : "Pizza OóClock",
-            "price"     : 23.54,
-            "category"  : "Pizza",
-            "image"     : "http://localhost:3002/sources/assets/images/pizza/Pizza-6.jpg",
-            "date"      : "2023-05-02",
-            "time"      : "12:12"
+            "id"        : 3,
+            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-3.jpg"
         },
         {
-            "id"        : 18,
-            "title"     : "Pizza OóClock",
-            "price"     : 23.54,
-            "category"  : "Pizza",
-            "image"     : "http://localhost:3002/sources/assets/images/pizza/Pizza-7.jpg",
-            "date"      : "2023-05-02",
-            "time"      : "12:12"
+            "id"        : 4,
+            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-4.jpg"
+        },
+        {
+            "id"        : 5,
+            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-5.jpg"
+        },
+        {
+            "id"        : 6,
+            "image"     : "http://localhost:3002/sources/assets/images/burger/Burger-6.jpg"
+        },
+        {
+            "id"        : 12,
+            "image"     : "http://localhost:3002/sources/assets/images/pizza/Pizza-1.jpg"
+        },
+        {
+            "id"        : 13,
+            "image"     : "http://localhost:3002/sources/assets/images/pizza/Pizza-2.jpg"
+        },
+        {
+            "id"        : 14,
+            "image"     : "http://localhost:3002/sources/assets/images/pizza/Pizza-3.jpg"
+        },
+        {
+            "id"        : 15,
+            "image"     : "http://localhost:3002/sources/assets/images/pizza/Pizza-4.jpg"
         }
     ]
 }
