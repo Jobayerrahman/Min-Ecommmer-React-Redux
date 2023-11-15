@@ -10,6 +10,7 @@ import Topnavigation from "./Components/Navigation/Topnavigation";
 import Footer from "./Components/Footer/Footer";
 import MobileBanner from "./Components/Banner/MobileBanner";
 import Gallery from "./Components/Gallery/Gallery";
+import BookTable from "./Components/BookTable/BookTable";
 function App() {
 
   const dispatch = useDispatch();
@@ -56,6 +57,7 @@ function App() {
       <Cetagory all={handleAllFasion} women={handleWomenFasion} men={handleMenFasion} electronics={handleElectronics} accessories={handleAccessories} />
       <Product isLoading={isLoading} products={products} errors={errors} fasionCetagory={fasionCetagory} isFasion={isFasions} />
       <Gallery/>
+      <BookTable/>
       <Footer/>
     </div>
   );

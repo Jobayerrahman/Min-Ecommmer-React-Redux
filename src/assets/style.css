@@ -180,6 +180,7 @@ body{
 .productsWrapper{
     background: #fcfcfc;
     padding: 50px 20px;
+    text-align: center;
 }
 
 .productsWrapper h2{
