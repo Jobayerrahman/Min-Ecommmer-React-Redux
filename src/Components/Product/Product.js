@@ -1,5 +1,19 @@
+import React, { useState, useEffect } from "react";
 import Productcard from "./Productcard";
-export default function Product({isLoading,products,errors,fasionCetagory,isFasion}){
+import { useDispatch, useSelector } from "react-redux";
+import productsFatcher from "../../Redux/ProductsSlice/Dispatcher/productsFatcher";
+
+
+export default function Product({fasionCetagory,isFasion}){
+
+    const dispatch = useDispatch();
+    useEffect(()=>{dispatch(productsFatcher())},[]);
+
+    const {isLoading,products,errors} =useSelector((state) => state);
+    const state = useSelector((state)=>state);
+    console.log(state);
+
+
     return(
         <div className="productsWrapper">
             <h2 className="text-slate-950 font-bold text-[32px] mb-10">Taste Our Products</h2>

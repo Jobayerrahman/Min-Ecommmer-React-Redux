@@ -4,18 +4,12 @@ import Footer from "./Components/Footer/Footer";
 import Gallery from "./Components/Gallery/Gallery";
 import TopBanner from "./Components/Banner/TopBanner";
 import Cetagory from "./Components/Cetagory/Cetagory";
-import { useDispatch, useSelector, Provider } from "react-redux";
 import Product from "../src/Components/Product/Product";
 import BookTable from "./Components/BookTable/BookTable";
 import Productcard from "./Components/Product/Productcard";
-import {getAllProduct} from "./Services/Actions/ProductAction";
 import Topnavigation from "./Components/Navigation/Topnavigation";
 function App() {
-
-  // const dispatch = useDispatch();
-  // useEffect(()=>{dispatch(getAllProduct())},[]);
-
-  // const {isLoading,products,errors} =useSelector((state) => state);
+  
   // const [fasions, setFasions] = useState([]);
   // const [isFasions, setIsFasions] = useState(false);
   
@@ -54,7 +48,7 @@ function App() {
         <Topnavigation/>
         <TopBanner/>
         {/* <Cetagory all={handleAllFasion} women={handleWomenFasion} men={handleMenFasion} electronics={handleElectronics} accessories={handleAccessories} /> */}
-        {/* <Product isLoading={isLoading} products={products} errors={errors} fasionCetagory={fasionCetagory} isFasion={isFasions} /> */}
+        <Product/>
         <Gallery/>
         <BookTable/>
         <Footer/>
