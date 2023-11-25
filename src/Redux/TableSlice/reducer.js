@@ -1,4 +1,4 @@
-import { TABLEADDED, TABLEBOOKED } from "./actionIdentifire";
+import { TABLEDISPLAYED, TABLEBOOKED } from "./actionIdentifire";
 import initialState from "./initialState";
 
 
@@ -25,6 +25,13 @@ const reducer = (state = initialState, action) =>{
                     }
                 ]
             };
+            
+        case TABLEDISPLAYED:
+            return{
+                ...state,
+                tables: action.payload
+            };
+
         default:
             return state;
     }

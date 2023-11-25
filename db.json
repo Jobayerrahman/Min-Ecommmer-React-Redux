@@ -124,7 +124,7 @@
       "image": "http://localhost:3002/sources/assets/images/pizza/Pizza-4.jpg"
     }
   ],
-  "tables": [
+  "booking_info": [
     {
       "name": "Devid",
       "mobile": "789654123",
@@ -142,10 +142,56 @@
       "id": 2
     },
     {
+      "name": "Devid",
+      "mobile": "147852369",
+      "table": "Table 02",
+      "member": "4 member",
+      "time": "7:00 pm",
       "id": 3
+    }
+  ],
+  "tables": [
+    {
+      "id": 1,
+      "table": "Table 01",
+      "status": "booked",
+      "time": "3.00pm",
+      "color": "#61717f"
     },
     {
-      "id": 4
+      "id": 2,
+      "table": "Table 02",
+      "status": "",
+      "time": "",
+      "color": "#e6ac0e"
+    },
+    {
+      "id": 3,
+      "table": "Table 03",
+      "status": "",
+      "time": "",
+      "color": "#e6ac0e"
+    },
+    {
+      "id": 4,
+      "table": "Table 04",
+      "status": "booked",
+      "time": "3.00pm",
+      "color": "#61717f"
+    },
+    {
+      "id": 5,
+      "table": "Table 05",
+      "status": "",
+      "time": "",
+      "color": "#e6ac0e"
+    },
+    {
+      "id": 6,
+      "table": "Table 06",
+      "status": "",
+      "time": "",
+      "color": "#e6ac0e"
     }
   ]
 }

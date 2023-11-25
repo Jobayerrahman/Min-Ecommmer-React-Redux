@@ -1,12 +1,12 @@
 import axios from "axios";
 import { added } from "../action";
 
-const addTableDispatcher = (bookedInfo) =>{
+const addBookingInfoDispatcher = (bookedInfo) =>{
     return async (dispatch) => {
-        const response = await axios.post("http://localhost:5000/tables",bookedInfo);
+        const response = await axios.post("http://localhost:5000/booking_info",bookedInfo);
         const BookedInfo = response.data;
         dispatch(added(BookedInfo));
     }
 }
 
-export default addTableDispatcher;
+export default addBookingInfoDispatcher;

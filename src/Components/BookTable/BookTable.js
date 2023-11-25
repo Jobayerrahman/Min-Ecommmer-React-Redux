@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import addTableDispatcher from "../../Redux/TableSlice/Dispatcher/addTableDispatcher";
+import addBookingInfoDispatcher from "../../Redux/TableSlice/Dispatcher/addBookingInfoDispatcher";
+import fatchTableDispatcher from "../../Redux/TableSlice/Dispatcher/fatchTableDispatcher";
 
 export default function BookTable(){
     const dispatch = useDispatch();
-    const bookingInfo = useSelector((state)=>state.bookedInfos);
+    const state = useSelector((state)=>state);
     const [ showTable, setShowTable ] = useState(false);
     const [ bookingName, setBookingName ] = useState();
     const [ mobile, setMobile ] = useState();
@@ -14,6 +15,7 @@ export default function BookTable(){
 
     const handleShowTable = () =>{
         setShowTable(!showTable);
+        dispatch(fatchTableDispatcher());
     }
 
     const handleFormInput = (e) =>{
@@ -38,8 +40,7 @@ export default function BookTable(){
     const handleTableBook = (e) =>{
         e.preventDefault();
         const bookedInfo = {name: bookingName, mobile: mobile, table: tableNumber, member: member, time: time};
-        console.log(bookedInfo);
-        dispatch(addTableDispatcher(bookedInfo));
+        dispatch(addBookingInfoDispatcher(bookedInfo));
         setBookingName('');
         setMobile('');
         setTableNumber('');
@@ -47,7 +48,7 @@ export default function BookTable(){
         setTime('');
     }
 
-    console.log(bookingInfo);
+    console.log(state);
 
     return(
         <div className="my-[40px] h-[auto] p-[20px] 
@@ -76,17 +77,10 @@ export default function BookTable(){
                                 <option value="">10:00 pm</option>
                             </select>
                         </div>
-                        <div className="flex justify-between flex-wrap items-stretch mx-[50px] h-[100%] md: mb-[25px]">
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 01</div>
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 02</div>
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 03</div>
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 04</div>
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 04</div>
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 04</div>
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 04</div>
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 04</div>
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 04</div>
-                            <div className="w-[80px] h-[25px] mx-2 my-2 bg-[#e6ac0e] text-white rounded-md">Table 04</div>
+                        <div className="flex justify-between flex-wrap items-stretch mx-[50px] h-[100%] md: mb-[25px]"> 
+                            {state.tables.map((table)=>(
+                                <div key={table.id} className={`w-[80px] h-[25px] mx-2 my-2 bg-[${table.color}] text-white rounded-md`}>{table.table}</div>
+                            ))}
                         </div>
                     </div>
                     ):(<div className="flex justify-between min-w-fit md:w-[100%] md:justify-center">
