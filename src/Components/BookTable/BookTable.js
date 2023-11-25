@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import addTableDispatcher from "../../Redux/TableSlice/Dispatcher/addTableDispatcher";
 
 export default function BookTable(){
+    const dispatch = useDispatch();
+    const bookingInfo = useSelector((state)=>state.bookedInfos);
     const [ showTable, setShowTable ] = useState(false);
-    const [ bookedTable, setBookedTable ] = useState([]);
     const [ bookingName, setBookingName ] = useState();
     const [ mobile, setMobile ] = useState();
     const [ tableNumber, setTableNumber ] = useState();
@@ -14,51 +17,50 @@ export default function BookTable(){
     }
 
     const handleFormInput = (e) =>{
-        if(e.target.type === 'text' ){
-            const inputValue = e.target.value;
-            if(e.target.name === 'bookingName'){
-                setBookingName(inputValue);
-            }
-            else if(e.target.name === 'mobile'){
-                setMobile(inputValue);
-            }
-            else if(e.target.name === 'selectedTable'){
-                setTableNumber(inputValue);
-            }
-            else if(e.target.name === 'selectedMember'){
-                setMember(inputValue);
-            }
-            else if(e.target.name === 'selectedTime'){
-                setTime(inputValue);
-            }
+        const inputValue = e.target.value;
+        if(e.target.name === 'bookingName'){
+            setBookingName(inputValue);
+        }
+        else if(e.target.name === 'mobile'){
+            setMobile(inputValue);
+        }
+        else if(e.target.name === 'selectedTable'){
+            setTableNumber(inputValue);
+        }
+        else if(e.target.name === 'selectedMember'){
+            setMember(inputValue);
+        }
+        else if(e.target.name === 'selectedTime'){
+            setTime(inputValue);
         }
     }
 
     const handleTableBook = (e) =>{
         e.preventDefault();
-        setBookedTable([...bookedTable,{name: bookingName, mobile: mobile, table: tableNumber, numberofmember: member, time: time}])
+        const bookedInfo = {name: bookingName, mobile: mobile, table: tableNumber, member: member, time: time};
+        console.log(bookedInfo);
+        dispatch(addTableDispatcher(bookedInfo));
         setBookingName('');
         setMobile('');
         setTableNumber('');
-        setTableNumber('');
+        setMember('');
         setTime('');
-        console.log(bookedTable);
-        console.log({name: bookingName, mobile: mobile, table: tableNumber, numberofmember: member, time: time});
     }
+
+    console.log(bookingInfo);
 
     return(
         <div className="my-[40px] h-[auto] p-[20px] 
                 text-center bg-white 
                 shadow-lg shadow-indigo-500/50  
-                md:mx-[50px] md:h-[auto]  xl:h-[650px] xl:mx-[200px]"
-            >
+                md:mx-[50px] md:h-[auto]  xl:h-[650px] xl:mx-[200px]">
             <h2 className="font-bold text-[32px] mb-4">Reserve A Table</h2>
             <div className="flex flex-wrap justify-stretch 
                     lg:flex-nowrap 
                     xl:flex-nowrap">
                 {showTable ? (
                     <div className="flex flex-col 
-                            w-[650px] mx-[15px]
+                            w-fit mx-[15px]
                             md:mx-[15px] lg:mx-[60px]">
                         <div className="w-[100%] flex flex-col items-start mb-[20px]">
                             <h4 className="font-bold text-[14px] mb-[5px]">Booking Time :</h4>
@@ -102,8 +104,7 @@ export default function BookTable(){
                             />
                     </div>)}
                 <div className="w-[100%] h-[100%] flex flex-col items-start p-3">
-                    {showTable ? (
-                        <div className="w-[100%]">
+                    {showTable ? (<div className="w-[100%]">
                             <div className="w-[100%] flex flex-col items-start mb-[5px]">
                                 <h4 className="font-bold text-[14px] mb-[5px]">Mobile Number :</h4>
                                 <input className="w-[100%] h-[40px] 
@@ -127,9 +128,7 @@ export default function BookTable(){
                                 onClick={handleShowTable}>
                                     Back
                             </button>
-                        </div>
-                    ):(
-                        <div className="w-[100%]">
+                        </div>):(<div className="w-[100%]">
                             <form onSubmit={handleTableBook}>
                                 <div className="w-[100%] flex flex-col items-start mb-[5px]">
                                     <h4 className="font-bold text-[14px] mb-[5px]">Booking Name :</h4>
