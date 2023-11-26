@@ -1,5 +1,6 @@
 const initialState = {
     isDataAvailable: false,
+    message:"",
     tables:[
         
     ],

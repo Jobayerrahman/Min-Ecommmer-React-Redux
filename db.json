@@ -126,40 +126,12 @@
   ],
   "booking_info": [
     {
-      "name": "Devid",
-      "mobile": "789654123",
-      "table": "Table 05",
-      "member": "7 member",
-      "time": "8:00 pm",
-      "id": 1
-    },
-    {
-      "name": "Devid",
-      "mobile": "741236589",
-      "table": "Table 04",
+      "name": "Jordan Goul",
+      "mobile": "789456123",
+      "table": "Table 03",
       "member": "4 member",
-      "time": "2:00 pm",
-      "id": 2
-    },
-    {
-      "name": "Devid sa",
-      "mobile": "147852369",
-      "table": "Table 02",
-      "member": "1 member",
-      "time": "7:00 pm",
+      "time": "6:00 pm",
       "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
     }
   ],
   "tables": [

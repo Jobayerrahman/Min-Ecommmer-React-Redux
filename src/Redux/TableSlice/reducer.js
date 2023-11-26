@@ -1,4 +1,4 @@
-import { TABLEDISPLAYED, TABLEBOOKED, TABLETIME, TABLESEARCH } from "./actionIdentifire";
+import { TABLEDISPLAYED, TABLEBOOKED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO } from "./actionIdentifire";
 import initialState from "./initialState";
 
 
@@ -53,6 +53,13 @@ const reducer = (state = initialState, action) =>{
                 isDataAvailable: action.payload.isDataAvailable,
                 bookedInfos: action.payload.info
             }
+
+        case DELETEBOOKEDINFO:
+            return {
+                ...state,
+                isDataAvailable: action.payload.status === 200 ? false : true,
+                message: action.payload.status === 200 ? "Information Deleted Successfully" : "Operation not possible, Something Wrong",
+            };
 
         default:
             return state;

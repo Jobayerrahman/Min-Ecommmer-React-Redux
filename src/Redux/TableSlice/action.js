@@ -1,4 +1,4 @@
-import { TABLEDISPLAYED, TABLEBOOKED, TABLETIME, TABLESEARCH } from './actionIdentifire';
+import { TABLEDISPLAYED, TABLEBOOKED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO } from './actionIdentifire';
 
 
 export const added = (BookedInfo) =>{
@@ -32,6 +32,16 @@ export const searchBookedTable = (searchInfo,availableData) =>{
         payload: {
             info: searchInfo,
             isDataAvailable: availableData
+        }
+    }
+}
+
+export const deleteBookedInfo = (bookedId,status) =>{
+    return{
+        type:DELETEBOOKEDINFO,
+        payload: {
+            bookedId: bookedId,
+            status: status
         }
     }
 }

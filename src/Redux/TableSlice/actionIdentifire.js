@@ -5,3 +5,4 @@ export const TABLEBOOKED = "TableSlice/booked";
 export const TABLEDISPLAYED = "TableSlice/displayed";
 export const TABLETIME = "TableSlice/tabletime";
 export const TABLESEARCH = "TableSlice/bookedtablesearch";
+export const DELETEBOOKEDINFO = "TableSlice/deletebookedinfo";
