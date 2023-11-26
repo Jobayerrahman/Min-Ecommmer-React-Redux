@@ -1,4 +1,4 @@
-import { TABLEDISPLAYED, TABLEBOOKED } from "./actionIdentifire";
+import { TABLEDISPLAYED, TABLEBOOKED, TABLETIME, TABLESEARCH } from "./actionIdentifire";
 import initialState from "./initialState";
 
 
@@ -31,6 +31,28 @@ const reducer = (state = initialState, action) =>{
                 ...state,
                 tables: action.payload
             };
+
+        case TABLETIME:
+            return {
+                 ...state,
+                 tables: action.payload.tables.map((table) =>{
+                    if((table.time != action.payload.time)){
+                        return table;
+                    }
+
+                    return{
+                        ...table,
+                        color: "#020202"
+                    }
+                 })
+            }; 
+            
+        case TABLESEARCH:
+            return {
+                ...state,
+                isDataAvailable: action.payload.isDataAvailable,
+                bookedInfos: action.payload.info
+            }
 
         default:
             return state;

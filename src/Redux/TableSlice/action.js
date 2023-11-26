@@ -1,4 +1,4 @@
-import { TABLEDISPLAYED, TABLEBOOKED } from './actionIdentifire';
+import { TABLEDISPLAYED, TABLEBOOKED, TABLETIME, TABLESEARCH } from './actionIdentifire';
 
 
 export const added = (BookedInfo) =>{
@@ -14,3 +14,24 @@ export const displayTable = (tables) =>{
         payload: tables,
     };
 };
+
+export const filterTimeTable = (tables,time) =>{
+    return{
+        type: TABLETIME,
+        payload: {
+            tables: tables,
+            time: time,
+        },
+    }
+}
+
+
+export const searchBookedTable = (searchInfo,availableData) =>{
+    return{
+        type: TABLESEARCH,
+        payload: {
+            info: searchInfo,
+            isDataAvailable: availableData
+        }
+    }
+}

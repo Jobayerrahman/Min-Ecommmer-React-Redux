@@ -9,9 +9,8 @@ export default function Product({cetagory,isItem}){
     const dispatch = useDispatch();
     useEffect(()=>{dispatch(productsFatcher())},[]);
 
-    const {isLoading,products,errors} =useSelector((state) => state);
+    const {isLoading,products,errors} =useSelector((state) => state.productSlice);
     const state = useSelector((state)=>state);
-    console.log(state);
 
 
     return(

@@ -1,8 +1,7 @@
 import thunk from "redux-thunk"; 
 import { applyMiddleware,createStore } from "redux";
-import productReducer from './ProductsSlice/reducer';
-import tableReducer from "./TableSlice/reducer";
+import rootReducer from './rootReducer';
 
-const store =createStore(productReducer,applyMiddleware(thunk));
+const store =createStore(rootReducer,applyMiddleware(thunk));
 
 export default store;

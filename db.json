@@ -142,10 +142,10 @@
       "id": 2
     },
     {
-      "name": "Devid",
+      "name": "Devid sa",
       "mobile": "147852369",
       "table": "Table 02",
-      "member": "4 member",
+      "member": "1 member",
       "time": "7:00 pm",
       "id": 3
     },
@@ -156,19 +156,9 @@
       "id": 5
     },
     {
-      "name": "",
-      "mobile": "",
-      "table": "",
-      "member": "",
-      "time": "",
       "id": 6
     },
     {
-      "name": "",
-      "mobile": "",
-      "table": "",
-      "member": "",
-      "time": "",
       "id": 7
     }
   ],
@@ -177,42 +167,42 @@
       "id": 1,
       "table": "Table 01",
       "status": "booked",
-      "time": "3.00pm",
-      "color": "#61717f"
+      "time": "3:00pm",
+      "color": "#e6ac0e"
     },
     {
       "id": 2,
       "table": "Table 02",
       "status": "",
-      "time": "",
+      "time": "4:00pm",
       "color": "#e6ac0e"
     },
     {
       "id": 3,
       "table": "Table 03",
       "status": "",
-      "time": "",
+      "time": "5:00pm",
       "color": "#e6ac0e"
     },
     {
       "id": 4,
       "table": "Table 04",
       "status": "booked",
-      "time": "3.00pm",
-      "color": "#61717f"
+      "time": "3:00pm",
+      "color": "#e6ac0e"
     },
     {
       "id": 5,
       "table": "Table 05",
       "status": "",
-      "time": "",
+      "time": "9:00pm",
       "color": "#e6ac0e"
     },
     {
       "id": 6,
       "table": "Table 06",
       "status": "",
-      "time": "",
+      "time": "6:00pm",
       "color": "#e6ac0e"
     }
   ]

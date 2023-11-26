@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import addBookingInfoDispatcher from "../../Redux/TableSlice/Dispatcher/addBookingInfoDispatcher";
 import fatchTableDispatcher from "../../Redux/TableSlice/Dispatcher/fatchTableDispatcher";
+import filterTimeTableDispatcher from "../../Redux/TableSlice/Dispatcher/filterTimeTableDispatcher";
+import searchTableDispatcher from "../../Redux/TableSlice/Dispatcher/searchTableDispatcher";
 
 export default function BookTable(){
     const dispatch = useDispatch();
-    const state = useSelector((state)=>state);
+    const state = useSelector((state)=>state.tableSlice);
     const [ showTable, setShowTable ] = useState(false);
     const [ bookingName, setBookingName ] = useState();
     const [ mobile, setMobile ] = useState();
     const [ tableNumber, setTableNumber ] = useState();
     const [ member, setMember ] = useState();
     const [ time, setTime ] = useState();
+
+    const [ searchedInfo, setSearchedInfo ] = useState();
 
     const handleShowTable = () =>{
         setShowTable(!showTable);
@@ -37,6 +41,22 @@ export default function BookTable(){
         }
     }
 
+    const handleSelectedInput = (e) =>{
+        const inputValue = e.target.value;
+        dispatch(filterTimeTableDispatcher(inputValue));
+    }
+
+    const handleSearchedInput = (e) =>{
+        const inputValue = e.target.value;
+        setSearchedInfo(inputValue);
+    }
+
+    const handleSearch = (e) =>{
+        e.preventDefault();
+        dispatch(searchTableDispatcher(searchedInfo));
+        setSearchedInfo('');
+    }
+
     const handleTableBook = (e) =>{
         e.preventDefault();
         const bookedInfo = {name: bookingName, mobile: mobile, table: tableNumber, member: member, time: time};
@@ -58,26 +78,33 @@ export default function BookTable(){
             <h2 className="font-bold text-[32px] mb-4">Reserve A Table</h2>
             <div className="flex flex-wrap justify-stretch 
                     lg:flex-nowrap 
-                    xl:flex-nowrap">
+                    xl:flex-nowrap lg:h-[100%]">
                 {showTable ? (
                     <div className="flex flex-col 
                             w-fit mx-[15px]
                             md:mx-[15px] lg:mx-[60px]">
                         <div className="w-[100%] flex flex-col items-start mb-[20px]">
                             <h4 className="font-bold text-[14px] mb-[5px]">Booking Time :</h4>
-                            <select className="w-[100%] h-[40px] text-[14px] mb-[5px] border-solid border-2 border-slate-200 rounded-md" name="selectedFruit">
-                                <option value="">2:00 pm</option>
-                                <option value="">3:00 pm</option>
-                                <option value="">4:00 pm</option>
-                                <option value="">5:00 pm</option>
-                                <option value="">6:00 pm</option>
-                                <option value="">7:00 pm</option>
-                                <option value="">8:00 pm</option>
-                                <option value="">9:00 pm</option>
-                                <option value="">10:00 pm</option>
+                            <select className="w-[100%] h-[40px] 
+                                        text-[14px] mb-[5px] 
+                                        border-solid border-2 
+                                        border-slate-200 rounded-md" 
+                                    name="selectedTimeTable"
+                                    onChange={handleSelectedInput}
+                                >
+                                <option value="">-- Select Time --</option>
+                                <option value="2:00pm">2:00 pm</option>
+                                <option value="3:00pm">3:00 pm</option>
+                                <option value="4:00pm">4:00 pm</option>
+                                <option value="5:00pm">5:00 pm</option>
+                                <option value="6:00pm">6:00 pm</option>
+                                <option value="7:00pm">7:00 pm</option>
+                                <option value="8:00pm">8:00 pm</option>
+                                <option value="9:00pm">9:00 pm</option>
+                                <option value="10:00pm">10:00 pm</option>
                             </select>
                         </div>
-                        <div className="flex justify-between flex-wrap items-stretch mx-[50px] h-[100%] md: mb-[25px]"> 
+                        <div className="flex justify-between flex-wrap items-stretch mx-[50px] h-[auto] md: mb-[25px]"> 
                             {state.tables.map((table)=>(
                                 <div key={table.id} className={`w-[80px] h-[25px] mx-2 my-2 bg-[${table.color}] text-white rounded-md`}>{table.table}</div>
                             ))}
@@ -104,14 +131,14 @@ export default function BookTable(){
                                 <input className="w-[100%] h-[40px] 
                                     text-[14px] mb-[5px] px-2
                                     border-solid border-2 
-                                    border-slate-200 rounded-md" />
+                                    border-slate-200 rounded-md" onChange={handleSearchedInput} value={searchedInfo} />
                             </div>
                             <button 
                                 className="p-2 mb-5 w-[100%] text-white
                                     bg-[#e6ac0e] rounded-md 
                                     font-bold text-[16px] 
                                     hover:bg-[#f8c331]"
-                                onClick={handleShowTable}>
+                                onClick={handleSearch}>
                                     Search Table
                             </button> 
                             <button 
@@ -122,6 +149,48 @@ export default function BookTable(){
                                 onClick={handleShowTable}>
                                     Back
                             </button>
+                            {state.isDataAvailable? (<table className="mt-3 bg-[#e2e8f0] w-[100%] h-[auto] p-5 rounded-md md:w-[450px] lg:w-[500px]">
+                                <tr className="flex justify-start w-[100%] py-2">
+                                    <td>
+                                        <h2 className="font-[24px] font-[700] mx-4">Name :</h2>
+                                    </td>
+                                    <td>
+                                        <h4 className="font-[18px] font-[400] mx-4">{state.bookedInfos.name}</h4>
+                                    </td>
+                                </tr>
+                                <tr className="flex justify-start w-[100%] py-2">
+                                    <td>
+                                        <h2 className="font-[24px] font-[700] mx-4">Mobile :</h2>
+                                    </td>
+                                    <td>
+                                        <h4 className="font-[18px] font-[400] mx-4">{state.bookedInfos.mobile}</h4>
+                                    </td>
+                                </tr>
+                                <tr className="flex justify-start w-[100%] py-2">
+                                    <td>
+                                        <h2 className="font-[24px] font-[700] mx-4">Table Number :</h2>
+                                    </td>
+                                    <td>
+                                        <h4 className="font-[18px] font-[400] mx-4">{state.bookedInfos.table}</h4>
+                                    </td>
+                                </tr>
+                                <tr className="flex justify-start w-[100%] py-2">
+                                    <td>
+                                        <h2 className="font-[24px] font-[700] mx-4">Number of Member :</h2>
+                                    </td>
+                                    <td>
+                                        <h4 className="font-[18px] font-[400] mx-4">{state.bookedInfos.member}</h4>
+                                    </td>
+                                </tr>
+                                <tr className="flex justify-start w-[100%] py-2">
+                                    <td>
+                                        <h2 className="font-[24px] font-[700] mx-4">Booked Time :</h2>
+                                    </td>
+                                    <td>
+                                        <h4 className="font-[18px] font-[400] mx-4">{state.bookedInfos.time}</h4>
+                                    </td>
+                                </tr>
+                            </table>) : null}
                         </div>):(<div className="w-[100%]">
                             <form onSubmit={handleTableBook}>
                                 <div className="w-[100%] flex flex-col items-start mb-[5px]">
