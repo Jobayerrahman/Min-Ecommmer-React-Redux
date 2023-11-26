@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/cartmodal.css';
+import '../../assets/modal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,7 +8,7 @@ function Placeordermodal({showPlaceOrder,closePlaceOrder}) {
     const showHiddenPlaceOrder = showPlaceOrder ? "modal display-block": "modal display-none";
     return (
         <div className={showHiddenPlaceOrder}>
-            <div className='modal-main'>
+            <div className='modal-main placeorder-modal'>
                 <div className='flex 
                         justify-between
                         items-center'>
