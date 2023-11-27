@@ -13,7 +13,7 @@ function App() {
   
   const [items, setItems] = useState([]);
   const [isItems, setIsItems] = useState(false);
-  const {products} =useSelector((state) => state);
+  const {products} =useSelector((state) => state.productSlice);
   
   const handleAllItem=()=>{
       setIsItems(false);

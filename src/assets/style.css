@@ -110,10 +110,14 @@ body{
 }
 
 .bannerButton{
+    float: left;
+	min-width: 150px;
+	max-width: 150px;
+	display: block;
+	text-align: center;
+    padding: 10px;
+	border: 2px solid #fcfcfc;
     color: #fff;
-    margin: 5px;
-    padding: 12px;
-    background: #e6ac0e;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
@@ -121,9 +125,14 @@ body{
     font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-.bannerButton:hover{
-    color: #fff;
-    background: #f8c331;
+.color-animatedBtn{
+    background: linear-gradient(to left, #ffffff00 50%, #e6ac0e 50%) right;
+    background-size: 200% 100%;
+    transition: .8s ease-out;
+}
+
+.color-animatedBtn:hover{
+    background-position: left;
 }
 
 .cetagoryWrapper{
@@ -352,6 +361,10 @@ body{
         padding: 20px;
     }
 
+    .topTitle{
+        text-align: center;
+    }
+
     .cetagoryWrapper{
         flex-wrap: nowrap;
         justify-content: center;
@@ -362,7 +375,7 @@ body{
         height: 6rem;
     }
     .cetagoryCardContent{
-        width: 3.7rem;
+        width: 3.5rem;
         height: 6rem;
         align-content: center;
         flex-wrap: wrap;
