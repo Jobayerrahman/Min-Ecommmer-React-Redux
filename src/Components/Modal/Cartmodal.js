@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useEffect, useState }from 'react';
 import '../../assets/modal.css';
 import { useDispatch,useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,6 +9,9 @@ import { cartItemDecrement, cartItemIncrement, cartItemRemoved } from '../../Red
 export default function Cartmodal({showCart,closeCart}) {
     const dispatch = useDispatch();
     const state = useSelector((state)=>state.cartSlice);
+
+    // useEffect(()=>{getItemName()},[]);
+    // const [itemName,setItemName] = useState([]);
 
     const showHiddenCart = showCart ? "modal display-block": "modal display-none";
     const [showPlaceOrderModal,setShowPlaceOrderModal] = useState(false);
@@ -36,6 +39,15 @@ export default function Cartmodal({showCart,closeCart}) {
     const handleClosePlaceOrder = () =>{
         setShowPlaceOrderModal(false);
     }
+
+    // const getItemName = () =>{
+    //     state.items.map((item)=> {
+    //         setItemName([...itemName,item.name])
+    //     })
+    // }
+
+    const totalItem     = state.items.length
+    const totalPrice    = state.items.reduce((total,item) => total + item.price ,0)
 
     return (
         <div className={showHiddenCart}>
@@ -89,7 +101,7 @@ export default function Cartmodal({showCart,closeCart}) {
                                                         lg:mx-5 lg:mt-1 
                                                         md:text-[12px] 
                                                         lg:mx-5 lg:text-[14px]'>
-                                                    ${item.price}
+                                                    ${(Math.round(item.price * 100) / 100).toFixed(2)}
                                             </spna>
                                         </div>
                                         <div className='flex flex-nowrap items-center my-1 lg:mx-2 mb-3'>
@@ -127,20 +139,20 @@ export default function Cartmodal({showCart,closeCart}) {
                             md:w-[250px] md:h-full
                             lg:w-[300px] lg:h-full'>
                         <table className="mt-3 w-[100%] h-[auto] p-5 rounded-md">
-                            <tr className="flex justify-start w-[100%] py-2">
+                            {/* <tr className="flex justify-start w-[100%] py-2">
                                 <td>
                                     <h2 className="font-[24px] font-[700] mx-4">Name:</h2>
                                 </td>
                                 <td>
-                                    <h4 className="font-[18px] font-[400] mx-4">Burger OóClock</h4>
+                                    <h4 className="font-[18px] font-[400] mx-4"></h4>
                                 </td>
-                            </tr>
+                            </tr> */}
                             <tr className="flex justify-start w-[100%] py-2">
                                 <td>
                                     <h2 className="font-[24px] font-[700] mx-4">Number of Item:</h2>
                                 </td>
                                 <td>
-                                    <h4 className="font-[18px] font-[400] mx-4">03</h4>
+                                    <h4 className="font-[18px] font-[400] mx-4">{totalItem}</h4>
                                 </td>
                             </tr>
                             <tr className="flex justify-start w-[100%] py-2">
@@ -148,7 +160,7 @@ export default function Cartmodal({showCart,closeCart}) {
                                     <h2 className="font-[24px] font-[700] mx-4">Total Price:</h2>
                                 </td>
                                 <td>
-                                    <h4 className="font-[18px] font-[400] mx-4">$300</h4>
+                                    <h4 className="font-[18px] font-[400] mx-4">${(Math.round(totalPrice * 100) / 100).toFixed(2)}</h4>
                                 </td>
                             </tr>
                             <tr className="flex justify-start w-[100%] py-2">
@@ -175,7 +187,7 @@ export default function Cartmodal({showCart,closeCart}) {
                     <h4 className='text-[15px] mt-3 
                             font-bold mb-3
                             text-slate-400 lg:text-[22px]'>
-                        Total Price - $300.00
+                        Total Price - ${(Math.round(totalPrice * 100) / 100).toFixed(2)}
                     </h4>
                     {state.items.length !== 0? (<button 
                         class="bg-slate-900 
@@ -189,17 +201,17 @@ export default function Cartmodal({showCart,closeCart}) {
                             >
                         Checkout 
                     </button>) : (
-                        <button 
-                            class="bg-[#9ca3af]
-                                py-2 px-4 
-                                text-center 
-                                text-white w-[200px]
-                                rounded-md 
-                                md:w-[250px] lg:w-[300px] 
-                                font-[600] cursor-not-allowed"
-                                >
-                            Cart is empty 
-                        </button>
+                    <button 
+                        class="bg-[#9ca3af]
+                            py-2 px-4 
+                            text-center 
+                            text-white w-[200px]
+                            rounded-md 
+                            md:w-[250px] lg:w-[300px] 
+                            font-[600] cursor-not-allowed"
+                            >
+                        Cart is empty 
+                    </button>
                     )}
                 </div>
             </div>
