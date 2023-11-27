@@ -1,3 +1,7 @@
-const initialState = [];
+const initialState = {
+    items:[
+        
+    ]
+};
 
 export default initialState;

@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Productmodal from '../Modal/Productmodal';
 import Cartmodal from '../Modal/Cartmodal';
+import { useDispatch } from 'react-redux';
+import { cartItemAdded } from '../../Redux/CartSlice/actions';
 
 
 export default function Productcard({...product}){
+    const dispatch = useDispatch();
     // const [showMore, setShowMore] = useState(false);
     // const shortendes = des ? des.substring(0, 50) : '';
 
@@ -18,6 +21,8 @@ export default function Productcard({...product}){
     }
 
     const handleCart = () =>{
+        const itemObject = {name: product.title, price: product.price, count: 1, image: product.image, updatedPrice: product.price}
+        dispatch(cartItemAdded(itemObject));
         setShowCartModal(true);
     }    
 
