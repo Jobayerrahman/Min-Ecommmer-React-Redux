@@ -127,6 +127,7 @@ body{
 
 .color-animatedBtn{
     background: linear-gradient(to left, #ffffff00 50%, #e6ac0e 50%) right;
+    backdrop-filter: blur(50px);
     background-size: 200% 100%;
     transition: .8s ease-out;
 }
@@ -315,6 +316,17 @@ body{
   100%{
       transform: translateY(0)
   }
+}
+
+
+/****************** No Scroll bar ******************/
+.hiddenScrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hiddenScrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 @media only screen and (max-width: 1024px) {

@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBagShopping, faUser } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 import Cartmodal from '../Modal/Cartmodal';
 import Authmodal from '../Modal/Authmodal';
 function Topnavigation(props) {
     const [navigationStyle,setNavigationStyle] = useState('navigationWrapper');
     const [showCartModal,setShowCartModal] = useState(false);
     const [showAuthModal,setShowAuthModal] = useState(false);
+
+    const state = useSelector((state)=>state.cartSlice);
+
     const handleCart = () =>{
         setShowCartModal(true);
     }    
@@ -45,12 +49,14 @@ function Topnavigation(props) {
                 <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     {/* <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button> */}
                     <a className='flex justify-center items-center
-                        bg-trasparnt text-white
-                        border-2 border-gray-50 
-                        text-[14px] font-[500] font-serif 
-                        min-w-[150px] max-w-[150px] p-2 rounded
-                        hover:cursor-pointer color-animatedBtn'>
-                            Order Now
+                            bg-trasparnt text-white
+                            border-2 border-gray-50 
+                            text-[14px] font-[500] font-serif 
+                            min-w-[150px] max-w-[150px] p-2 rounded
+                            hover:cursor-pointer color-animatedBtn'
+                        onClick={state.items.length !== 0? handleCart : null }>
+                            {state.items.length == 0 ? 'Order Now' : 'My Cart' }
+                            
                             {/* <FontAwesomeIcon 
                                 className='navigationIcon' 
                                 onClick={handleCart} 

@@ -25,7 +25,7 @@ const reducer = (state=initialState,action) =>{
                         count: action.payload.count,
                         updatedPrice: action.payload.price,
                     }
-                ]
+                ],
             }
         
         case CARTREMOVED:

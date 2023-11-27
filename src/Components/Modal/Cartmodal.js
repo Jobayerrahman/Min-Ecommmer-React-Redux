@@ -18,8 +18,10 @@ export default function Cartmodal({showCart,closeCart}) {
     }
 
     const handleDecrement= (id,price,count) =>{
-        if(count !== 0){
+        if(count !== 1){
             dispatch(cartItemDecrement(id,price))
+        }else{
+            dispatch(cartItemRemoved(id));
         }
     }
 
@@ -41,7 +43,11 @@ export default function Cartmodal({showCart,closeCart}) {
                 <div className='flex 
                         justify-between
                         items-center mb-6'>
-                    <h2 className='text-3xl font-bold'>Product Cart</h2>
+                    {state.items.length !== 0? (
+                    <h2 className='text-[20px] font-bold text-[#1f2937] font-serif'>My Cart</h2>
+                    ) : (
+                        <h2 className='text-[20px] font-bold text-[#4b5563] font-serif'>Your Cart Is Empty</h2>
+                    )}
                     <FontAwesomeIcon 
                         className='text-dark 
                         mr-2 p-2
@@ -55,11 +61,10 @@ export default function Cartmodal({showCart,closeCart}) {
 
                 <div className='flex 
                         flex-wrap justify-between 
-                        w-[100%] h-fit 
+                        w-[100%] h-[100%] 
                         md:flex-nowrap lg:flex-nowrap'>
-
-                    <div className='flex flex-col overflow-y-scroll md:h-[300px] lg:h-[350px]'>
-                        {state.items.map((item)=>
+                    <div className='flex flex-col overflow-y-scroll hiddenScrollbar md:h-[300px] lg:h-[350px]'>
+                    {state.items.map((item)=>
                             (<div className='flex items-center flex-row h-[80px] md:mb-2 lg:mb-2'>
                                 <div className='mx-1 md:mx-2 lg:mx-4'>
                                     <FontAwesomeIcon className='text-dark p-2text-lghover:cursor-pointer' icon={faXmark} onClick={() => handleRemoveItem(item.id)} />
@@ -73,15 +78,15 @@ export default function Cartmodal({showCart,closeCart}) {
                                             src={item.image}/>
                                     <div className='flex flex-row items-center'>
                                         <div className='flex flex-row mx-2 mb-3 lg:mx-5'>
-                                            <h2 className='text-[14px] 
-                                                    font-bold mx-1 
-                                                    md:text-[18px] 
-                                                    lg:mx-5 lg:text-[24px]'> 
+                                            <h2 className='text-[12px] 
+                                                    font-bold mx-2 mt-2 
+                                                    md:text-[14px] 
+                                                    lg:mx-5 lg:mt-1 lg:text-[18px]'> 
                                                     {item.name} 
                                             </h2>
                                             <spna className='text-[12px] 
                                                         font-medium mx-1 mt-1 
-                                                        lg:mx-5 lg:mt-2 
+                                                        lg:mx-5 lg:mt-1 
                                                         md:text-[12px] 
                                                         lg:mx-5 lg:text-[14px]'>
                                                     ${item.price}
@@ -117,32 +122,85 @@ export default function Cartmodal({showCart,closeCart}) {
                         )}
                     </div>
                     <div className='w-[100%] h-[400px] 
-                            flex flex-col 
+                            flex flex-col p-4
                             bg-[#e2e8f0] rounded-md 
                             md:w-[250px] md:h-full
                             lg:w-[300px] lg:h-full'>
-
+                        <table className="mt-3 w-[100%] h-[auto] p-5 rounded-md">
+                            <tr className="flex justify-start w-[100%] py-2">
+                                <td>
+                                    <h2 className="font-[24px] font-[700] mx-4">Name:</h2>
+                                </td>
+                                <td>
+                                    <h4 className="font-[18px] font-[400] mx-4">Burger OóClock</h4>
+                                </td>
+                            </tr>
+                            <tr className="flex justify-start w-[100%] py-2">
+                                <td>
+                                    <h2 className="font-[24px] font-[700] mx-4">Number of Item:</h2>
+                                </td>
+                                <td>
+                                    <h4 className="font-[18px] font-[400] mx-4">03</h4>
+                                </td>
+                            </tr>
+                            <tr className="flex justify-start w-[100%] py-2">
+                                <td>
+                                    <h2 className="font-[24px] font-[700] mx-4">Total Price:</h2>
+                                </td>
+                                <td>
+                                    <h4 className="font-[18px] font-[400] mx-4">$300</h4>
+                                </td>
+                            </tr>
+                            <tr className="flex justify-start w-[100%] py-2">
+                                <td>
+                                    <h2 className="font-[24px] font-[700] mx-4">Discount Amount:</h2>
+                                </td>
+                                <td>
+                                    <h4 className="font-[18px] font-[400] mx-4">0%</h4>
+                                </td>
+                            </tr>
+                            <tr className="flex justify-start w-[100%] py-2">
+                                <td>
+                                    <h2 className="font-[24px] font-[700] mx-4">Discounted Price:</h2>
+                                </td>
+                                <td>
+                                    <h4 className="font-[18px] font-[400] mx-4">$300</h4>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 
                 <div className='flex justify-between mt-2'>
                     <h4 className='text-[15px] mt-3 
                             font-bold mb-3
-                            text-slate-400 lg:text-2xl'>
-                        Total - $300.00
+                            text-slate-400 lg:text-[22px]'>
+                        Total Price - $300.00
                     </h4>
-                    <button 
+                    {state.items.length !== 0? (<button 
                         class="bg-slate-900 
                             py-2 px-4 
                             text-center 
                             text-white w-[200px]
                             rounded-md 
                             md:w-[250px] lg:w-[300px] 
-                            font-semibold"
+                            font-[600]"
                             onClick={handlePlaceOrder}
                             >
                         Checkout 
-                    </button>
+                    </button>) : (
+                        <button 
+                            class="bg-[#9ca3af]
+                                py-2 px-4 
+                                text-center 
+                                text-white w-[200px]
+                                rounded-md 
+                                md:w-[250px] lg:w-[300px] 
+                                font-[600] cursor-not-allowed"
+                                >
+                            Cart is empty 
+                        </button>
+                    )}
                 </div>
             </div>
             <PlaceOrderModal showPlaceOrder={showPlaceOrderModal} closePlaceOrder={handleClosePlaceOrder} />
