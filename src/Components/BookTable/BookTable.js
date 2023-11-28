@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import addBookingInfoDispatcher from "../../Redux/TableSlice/Dispatcher/addBookingInfoDispatcher";
-import fatchTableDispatcher from "../../Redux/TableSlice/Dispatcher/fatchTableDispatcher";
 import filterTimeTableDispatcher from "../../Redux/TableSlice/Dispatcher/filterTimeTableDispatcher";
-import searchTableDispatcher from "../../Redux/TableSlice/Dispatcher/searchTableDispatcher";
-import deleteBookingInfoDispatcher from "../../Redux/TableSlice/Dispatcher/deleteBookingInfoDispatcher";
 import BookingForm from "./BookingForm";
 import BookedSearch from "./BookedSearch";
 import BookedSearchInfo from "./BookedSearchInfo";
@@ -16,7 +12,6 @@ export default function BookTable(){
 
     const handleShowTable = () =>{
         setShowTable(!showTable);
-        dispatch(fatchTableDispatcher());
     }
 
     const handleSelectedInput = (e) =>{
@@ -41,7 +36,7 @@ export default function BookTable(){
                         <div className="w-[100%] flex flex-col items-start mb-[20px]">
                             <h4 className="font-bold text-[14px] mb-[5px]">Booking Time :</h4>
                             <select className="w-[100%] h-[40px] 
-                                        text-[14px] mb-[5px] 
+                                        text-[14px] mb-[5px] px-2 
                                         border-solid border-2 
                                         border-slate-200 rounded-md" 
                                     name="selectedTimeTable"

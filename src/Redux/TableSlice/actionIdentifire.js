@@ -1,8 +1,11 @@
-export const TABLEADDED = "TableSlice/added";
-export const TABLEREMOVED = "TableSlice/removed";
-export const TABLEUPDATED = "TableSlice/updated";
-export const TABLEBOOKED = "TableSlice/booked";
-export const TABLEDISPLAYED = "TableSlice/displayed";
-export const TABLETIME = "TableSlice/tabletime";
-export const TABLESEARCH = "TableSlice/bookedtablesearch";
-export const DELETEBOOKEDINFO = "TableSlice/deletebookedinfo";
+export const TABLEADDED         = "TableSlice/added";
+export const TABLELOADED        = "TableSlice/loaded";
+export const TABLETIME          = "TableSlice/time";
+export const TABLEREMOVED       = "TableSlice/removed";
+
+
+export const BOOKINGLOADED      = "TableSlice/bookingLoaded";
+export const TABLEBOOKED        = "TableSlice/booked";
+export const TABLEUPDATED       = "TableSlice/bookingUpdated";
+export const TABLESEARCH        = "TableSlice/searchbookedinfo";
+export const DELETEBOOKEDINFO   = "TableSlice/deletebookedinfo";

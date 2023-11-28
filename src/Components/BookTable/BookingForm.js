@@ -46,7 +46,7 @@ function BookingForm({onShowTable}) {
                 <h4 className="font-bold text-[14px] mb-[5px]">Booking Name :</h4>
                 <input 
                     className="w-[100%] h-[40px] 
-                        text-[14px] mb-[5px] 
+                        text-[14px] mb-[5px] px-2
                         border-solid border-2 
                         border-slate-200 rounded-md" 
                     type="text"
@@ -59,7 +59,7 @@ function BookingForm({onShowTable}) {
                 <h4 className="font-bold text-[14px] mb-[5px]">Mobile Number :</h4>
                 <input 
                     className="w-[100%] h-[40px] 
-                        text-[14px] mb-[5px] 
+                        text-[14px] mb-[5px] px-2
                         border-solid border-2 
                         border-slate-200 rounded-md"
                     type="text"
@@ -71,7 +71,7 @@ function BookingForm({onShowTable}) {
             <div className="w-[100%] flex flex-col items-start mb-[5px]">
                 <h4 className="font-bold text-[14px] mb-[5px]">Table Name :</h4>
                 <select 
-                    className="w-[100%] h-[40px] 
+                    className="w-[100%] h-[40px] px-2
                         text-[14px] mb-[5px] 
                         border-solid border-2 border-slate-200 
                         rounded-md" 
@@ -93,8 +93,8 @@ function BookingForm({onShowTable}) {
                 <h4 className="font-bold text-[14px] mb-[5px]">Number of Member :</h4>
                 <select 
                     className="w-[100%] h-[40px] 
-`                                           text-[14px] mb-[5px] 
-                        border-solid border-2 
+                        text-[14px] mb-[5px] 
+                        border-solid border-2 px-2
                         border-slate-200 rounded-md" 
                     type="text"
                     name="selectedMember"
@@ -115,7 +115,7 @@ function BookingForm({onShowTable}) {
                 <h4 className="font-bold text-[14px] mb-[5px]">Booking Time :</h4>
                 <select 
                     className="w-[100%] h-[40px] 
-                        text-[14px] mb-[5px] 
+                        text-[14px] mb-[5px] px-2
                         border-solid border-2 
                         border-slate-200 rounded-md" 
                     type="text"

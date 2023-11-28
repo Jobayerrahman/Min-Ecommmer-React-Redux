@@ -1,6 +1,6 @@
 import '../src/assets/style.css';
-import { useState } from "react";
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import Footer from "./Components/Footer/Footer";
 import Gallery from "./Components/Gallery/Gallery";
 import TopBanner from "./Components/Banner/TopBanner";
@@ -9,12 +9,19 @@ import Product from "../src/Components/Product/Product";
 import BookTable from "./Components/BookTable/BookTable";
 import Productcard from "./Components/Product/Productcard";
 import Topnavigation from "./Components/Navigation/Topnavigation";
+import fatchTableDispatcher from './Redux/TableSlice/Dispatcher/fatchTableDispatcher';
+import loadedBookingInfoDispatcher from './Redux/TableSlice/Dispatcher/loadedBookingInfoDispatcher';
 function App() {
-  
+  const dispatch = useDispatch();
   const [items, setItems] = useState([]);
   const [isItems, setIsItems] = useState(false);
   const {products} =useSelector((state) => state.productSlice);
   
+    useEffect(()=>{
+        dispatch(loadedBookingInfoDispatcher());
+        dispatch(fatchTableDispatcher());
+    },[]);
+
   const handleAllItem=()=>{
       setIsItems(false);
   }

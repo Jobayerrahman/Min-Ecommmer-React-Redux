@@ -84,13 +84,17 @@
   ],
   "order": [
     {
-      "name": "Jobayer",
-      "mobile": "",
-      "numbersOfProduct": 3,
-      "numbersOfItem": 6,
-      "totalPrice": 141.24,
+      "name": "Devid Warner",
+      "mobile": "123456878",
+      "email": "devid.warner@gmail.com",
+      "password": "pass",
+      "address": "78/c, Jonas stress",
+      "discountcode": "",
+      "numbersOfProduct": 1,
+      "numbersOfItem": 3,
+      "totalPrice": 70.62,
       "discount": 0,
-      "discountedPrice": 141.24,
+      "discountedPrice": 70.62,
       "id": 1
     }
   ],
@@ -138,12 +142,12 @@
   ],
   "booking_info": [
     {
-      "name": "Jordan Goul",
-      "mobile": "789456123",
-      "table": "Table 03",
-      "member": "4 member",
-      "time": "6:00 pm",
-      "id": 3
+      "id": 1,
+      "name": "Devid Morcel",
+      "mobile": "123456789",
+      "table": "Table 02",
+      "member": "2 member",
+      "time": "7:00 pm"
     }
   ],
   "tables": [

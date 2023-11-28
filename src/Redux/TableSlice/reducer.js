@@ -1,4 +1,4 @@
-import { TABLEDISPLAYED, TABLEBOOKED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO } from "./actionIdentifire";
+import { TABLELOADED, TABLEBOOKED, TABLEUPDATED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO, BOOKINGLOADED } from "./actionIdentifire";
 import initialState from "./initialState";
 
 
@@ -10,6 +10,12 @@ const  generateId = (bookingStates) =>{
 
 const reducer = (state = initialState, action) =>{
     switch (action.type) {
+        case BOOKINGLOADED:
+            return{
+                ...state,
+                bookedInfos: action.payload
+            };
+
         case TABLEBOOKED:
             return{
                 ...state,
@@ -25,12 +31,40 @@ const reducer = (state = initialState, action) =>{
                     }
                 ]
             };
-            
-        case TABLEDISPLAYED:
+
+        case TABLELOADED:
             return{
                 ...state,
                 tables: action.payload
             };
+
+        case TABLEUPDATED:
+            return{
+                ...state,
+                searchBookedInfos:{
+                    id: action.payload.info.id,
+                    name: action.payload.info.name,
+                    mobile: action.payload.info.mobile,
+                    table: action.payload.info.table,
+                    member: action.payload.info.member,
+                    time: action.payload.info.time,
+                },
+                bookedInfos:
+                    state.bookedInfos.map((bookedInfo)=>{
+                        if(bookedInfo.id !== action.payload.info.id){
+                            return bookedInfo;
+                        }
+                    
+                        return {
+                            ...bookedInfo,
+                            name: action.payload.info.name,
+                            mobile: action.payload.info.mobile,
+                            table: action.payload.info.table,
+                            member: action.payload.info.member,
+                            time: action.payload.info.time,
+                        }
+                    })
+            }
 
         case TABLETIME:
             return {
@@ -51,7 +85,7 @@ const reducer = (state = initialState, action) =>{
             return {
                 ...state,
                 isDataAvailable: action.payload.isDataAvailable,
-                bookedInfos: action.payload.info
+                searchBookedInfos: action.payload.info
             }
 
         case DELETEBOOKEDINFO:
@@ -59,6 +93,7 @@ const reducer = (state = initialState, action) =>{
                 ...state,
                 isDataAvailable: action.payload.status === 200 ? false : true,
                 message: action.payload.status === 200 ? "Information Deleted Successfully" : "Operation not possible, Something Wrong",
+                bookedInfos: state.bookedInfos.filter((bookedInfo)=> bookedInfo.id !== action.payload.bookedId)
             };
 
         default:

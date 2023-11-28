@@ -1,4 +1,4 @@
-import { TABLEDISPLAYED, TABLEBOOKED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO } from './actionIdentifire';
+import { TABLELOADED, TABLEBOOKED, TABLEUPDATED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO, BOOKINGLOADED } from './actionIdentifire';
 
 
 export const added = (BookedInfo) =>{
@@ -8,12 +8,31 @@ export const added = (BookedInfo) =>{
     };
 };
 
-export const displayTable = (tables) =>{
+export const loaded = (BookedInfo) =>{
     return{
-        type: TABLEDISPLAYED,
+        type: BOOKINGLOADED,
+        payload: BookedInfo,
+    };
+}
+
+
+export const loadedTable = (tables) =>{
+    return{
+        type: TABLELOADED,
         payload: tables,
     };
 };
+
+export const updated = (BookedInfo,BookedStatus) =>{
+    return{
+        type: TABLEUPDATED,
+        payload: {
+            info: BookedInfo,
+            status: BookedStatus,
+        },
+    };
+};
+
 
 export const filterTimeTable = (tables,time) =>{
     return{
