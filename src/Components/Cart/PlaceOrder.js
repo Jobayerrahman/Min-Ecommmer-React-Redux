@@ -4,12 +4,12 @@ import { placeOrderAdded } from '../../Redux/CartSlice/actions';
 
 function PlaceOrder() {
     const dispatch = useDispatch();
-    const [ name, setName ] = useState();
-    const [ mobile, setMobile ] = useState();
-    const [ email, setEmail ] = useState();
-    const [ password, setPassword ] = useState();
-    const [ address, setAddress ] = useState();
-    const [ discountCode, setDiscountCode ] = useState();
+    const [ name, setName ] = useState('');
+    const [ mobile, setMobile ] = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
+    const [ address, setAddress ] = useState('');
+    const [ discountCode, setDiscountCode ] = useState('');
 
     const handleFormInput = (e) =>{
         const inputValue = e.target.value;
@@ -35,8 +35,18 @@ function PlaceOrder() {
 
     const handlePlaceOrder = (e) =>{
         e.preventDefault();
-        const orderObj = {name: name, mobile: mobile, address:address, email: email, password: password,  discountcode: discountCode};
-        dispatch(placeOrderAdded(orderObj));
+        if(name !== '' || mobile !== '' || address !== '' || password !== ''){
+            const orderObj = {
+                name: name, 
+                mobile: mobile, 
+                address:address, 
+                email: email, 
+                password: password,  
+                discountcode: discountCode
+            };
+            dispatch(placeOrderAdded(orderObj));
+        }
+        console.log("Order Value Not Updated");
         setName('');
         setMobile('');
         setAddress('');

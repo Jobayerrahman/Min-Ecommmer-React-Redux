@@ -13,7 +13,6 @@ export default function Cartmodal({showCart,closeCart}) {
 
     // useEffect(()=>{getItemName()},[]);
     // const [itemName,setItemName] = useState([]);
-    console.log(state);
 
     const showHiddenCart = showCart ? "modal display-block": "modal display-none";
     const [showPlaceOrder,setShowPlaceOrder] = useState(false);
@@ -64,7 +63,8 @@ export default function Cartmodal({showCart,closeCart}) {
             discountedPrice: totalPrice,
         }
         
-        dispatch(addOrderDispatcher(orderObject))
+        dispatch(addOrderDispatcher(orderObject));
+        console.log(state)
     }
 
     return (

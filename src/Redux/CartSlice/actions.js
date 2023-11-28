@@ -1,4 +1,4 @@
-import { CARTADDED, CARTDISPLAYED, CARTREMOVED, CARTUPDATEDDECREMENT, CARTUPDATEDINCREMENT, PLACEORDERADDED } from "./actionIdentifire";
+import { CARTADDED, CARTDISPLAYED, CARTREMOVED, CARTUPDATEDDECREMENT, CARTUPDATEDINCREMENT, PLACEORDERADDED, ORDERADDED } from "./actionIdentifire";
 
 
 export const cartItemDisplayed = () =>{
@@ -53,7 +53,7 @@ export const placeOrderAdded = (placeOrderObj) =>{
 
 export const orderAdded = (data,status) =>{
     return {
-        type: PLACEORDERADDED,
+        type: ORDERADDED,
         payload: {
             dataObject: data,
             status: status

@@ -85,6 +85,7 @@ const reducer = (state=initialState,action) =>{
         case ORDERADDED:
             return{
                 ...state,
+                isPlaceOrders : false,
                 orders:[
                     ...state.orders,
                     {

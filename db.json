@@ -143,11 +143,11 @@
   "booking_info": [
     {
       "id": 1,
-      "name": "Devid Morcel",
+      "name": "Devid Warner",
       "mobile": "123456789",
-      "table": "Table 02",
-      "member": "2 member",
-      "time": "7:00 pm"
+      "table": "Table 01",
+      "member": "3 member",
+      "time": "3:00 pm"
     }
   ],
   "tables": [
