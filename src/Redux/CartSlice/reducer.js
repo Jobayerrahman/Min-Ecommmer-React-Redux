@@ -1,4 +1,4 @@
-import { CARTADDED, CARTDELETED, CARTDISPLAYED, CARTREMOVED, CARTUPDATEDDECREMENT, CARTUPDATEDINCREMENT } from "./actionIdentifire";
+import { CARTADDED, CARTDELETED, CARTDISPLAYED, CARTREMOVED, CARTUPDATEDDECREMENT, CARTUPDATEDINCREMENT, PLACEORDERADDED } from "./actionIdentifire";
 import initialState from "./initialState";
 
 
@@ -65,6 +65,23 @@ const reducer = (state=initialState,action) =>{
                             price: item.price - item.updatedPrice,
                         }
                     })
+            }
+        
+        case PLACEORDERADDED:
+            return{
+                ...state,
+                placeOrder:[
+                    ...state.placeOrders,
+                    {
+                        id: generateId(state.placeOrders),
+                        name: action.payload.name,
+                        mobile: action.payload.mobile,
+                        email: action.payload.email,
+                        password: action.payload.password,
+                        address: action.payload.address,
+                        discountcode: action.payload.discountcode
+                    }
+                ]
             }
     
         default:

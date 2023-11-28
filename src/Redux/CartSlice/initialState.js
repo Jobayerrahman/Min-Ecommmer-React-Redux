@@ -1,4 +1,7 @@
 const initialState = {
+    placeOrders:[
+
+    ],
     items:[
         
     ],

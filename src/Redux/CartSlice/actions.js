@@ -1,4 +1,4 @@
-import { CARTADDED, CARTDISPLAYED, CARTREMOVED, CARTUPDATEDDECREMENT, CARTUPDATEDINCREMENT } from "./actionIdentifire";
+import { CARTADDED, CARTDISPLAYED, CARTREMOVED, CARTUPDATEDDECREMENT, CARTUPDATEDINCREMENT, PLACEORDERADDED } from "./actionIdentifire";
 
 
 export const cartItemDisplayed = () =>{
@@ -39,5 +39,13 @@ export const cartItemDecrement = (itemId,price) =>{
             id: itemId,
             price: price
         }
+    }
+}
+
+
+export const placeOrderAdded = (orderObj) =>{
+    return {
+        type: PLACEORDERADDED,
+        payload: orderObj
     }
 }

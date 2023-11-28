@@ -4,3 +4,5 @@ export const CARTREMOVED = "CartSlice/removed";
 export const CARTUPDATEDINCREMENT = "CartSlice/updatedcounterincrement";
 export const CARTUPDATEDDECREMENT = "CartSlice/updatedcounterdecrement";
 export const CARTDELETED = "CartSlice/deleted";
+
+export const PLACEORDERADDED = "CartSlice/placeOrderAdded";

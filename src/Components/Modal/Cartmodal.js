@@ -73,7 +73,7 @@ export default function Cartmodal({showCart,closeCart}) {
                         md:flex-nowrap lg:flex-nowrap'>
                     <div className='flex flex-col overflow-y-scroll hiddenScrollbar w-[100%] md:w-[400px] lg:w-[500px] md:h-[300px] lg:h-[350px]'>
                         {showPlaceOrder ? (
-                            <PlaceOrder/>
+                            <PlaceOrder onPlaceOrder={handlePlaceOrder} />
                         ):(
                             // Cart Item
                             state.items.map((item)=>

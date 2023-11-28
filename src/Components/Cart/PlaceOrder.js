@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { placeOrderDispatcher } from '../../Redux/CartSlice/Dispatcher/placeOrderDispatcher';
 
-function PlaceOrder(props) {
+function PlaceOrder({onPlaceOrder}) {
+    const dispatch = useDispatch();
     const [ name, setName ] = useState();
     const [ mobile, setMobile ] = useState();
     const [ email, setEmail ] = useState();
@@ -30,10 +33,10 @@ function PlaceOrder(props) {
         }
     }
 
-    const handleTableBook = (e) =>{
+    const handlePlaceOrder = (e) =>{
         e.preventDefault();
-        const placeOrder = {name: name, mobile: mobile, address:address, email: email, password: password,  discountcode: discountCode};
-        console.log(placeOrder);
+        const orderObj = {name: name, mobile: mobile, address:address, email: email, password: password,  discountcode: discountCode};
+        dispatch(placeOrderDispatcher(orderObj));
         setName('');
         setMobile('');
         setAddress('');
@@ -43,7 +46,7 @@ function PlaceOrder(props) {
     }
 
     return (
-        <form onSubmit={handleTableBook}>
+        <form onSubmit={handlePlaceOrder}>
             <div className="w-[100%] flex flex-col items-start mb-[5px]">
                 <h4 className="font-bold text-[14px] mb-[5px]">Name* :</h4>
                 <input 
@@ -126,7 +129,9 @@ function PlaceOrder(props) {
                 className="p-2 mb-5 w-[100%] text-white
                     bg-[#e6ac0e]  rounded-md 
                     font-bold text-[16px] 
-                    hover:bg-[#f8c331] ">
+                    hover:bg-[#f8c331] " 
+                onClick={onPlaceOrder}    
+                >
                 Submit
             </button>
         </form>
