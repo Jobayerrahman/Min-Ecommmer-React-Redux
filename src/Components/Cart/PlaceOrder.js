@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { placeOrderDispatcher } from '../../Redux/CartSlice/Dispatcher/placeOrderDispatcher';
+import { placeOrderAdded } from '../../Redux/CartSlice/actions';
 
-function PlaceOrder({onPlaceOrder}) {
+function PlaceOrder() {
     const dispatch = useDispatch();
     const [ name, setName ] = useState();
     const [ mobile, setMobile ] = useState();
@@ -36,7 +36,7 @@ function PlaceOrder({onPlaceOrder}) {
     const handlePlaceOrder = (e) =>{
         e.preventDefault();
         const orderObj = {name: name, mobile: mobile, address:address, email: email, password: password,  discountcode: discountCode};
-        dispatch(placeOrderDispatcher(orderObj));
+        dispatch(placeOrderAdded(orderObj));
         setName('');
         setMobile('');
         setAddress('');
@@ -129,8 +129,7 @@ function PlaceOrder({onPlaceOrder}) {
                 className="p-2 mb-5 w-[100%] text-white
                     bg-[#e6ac0e]  rounded-md 
                     font-bold text-[16px] 
-                    hover:bg-[#f8c331] " 
-                onClick={onPlaceOrder}    
+                    hover:bg-[#f8c331] "     
                 >
                 Submit
             </button>

@@ -43,9 +43,20 @@ export const cartItemDecrement = (itemId,price) =>{
 }
 
 
-export const placeOrderAdded = (orderObj) =>{
+export const placeOrderAdded = (placeOrderObj) =>{
     return {
         type: PLACEORDERADDED,
-        payload: orderObj
+        payload: placeOrderObj
+    }
+}
+
+
+export const orderAdded = (data,status) =>{
+    return {
+        type: PLACEORDERADDED,
+        payload: {
+            dataObject: data,
+            status: status
+        }
     }
 }

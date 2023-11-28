@@ -84,12 +84,13 @@
   ],
   "order": [
     {
-      "name": "Devid Warner",
-      "mobile": "789456123",
-      "address": "78/c, Jonas stress",
-      "email": "devid.warner@gmail.com",
-      "password": "password",
-      "discountcode": "7894",
+      "name": "Jobayer",
+      "mobile": "",
+      "numbersOfProduct": 3,
+      "numbersOfItem": 6,
+      "totalPrice": 141.24,
+      "discount": 0,
+      "discountedPrice": 141.24,
       "id": 1
     }
   ],

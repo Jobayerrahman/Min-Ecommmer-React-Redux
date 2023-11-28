@@ -1,10 +1,8 @@
 const initialState = {
-    placeOrders:[
-
-    ],
-    items:[
-        
-    ],
+    isPlaceOrders : false,
+    placeOrders:{},
+    orders:[],
+    items:[],
 };
 
 export default initialState;
