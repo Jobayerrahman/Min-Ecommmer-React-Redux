@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../assets/authmodal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -6,11 +6,11 @@ import { faGoogle, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
 
 function Authmodal({showAuth,closeAuth}) {
-    const showHiddenAuth = showAuth ? "modal display-block": "modal display-none";
 
+    const showHiddenAuth = showAuth ? "modal display-block": "modal display-none";
     return (
         <div className={showHiddenAuth}>
-            <div className='modal-main log-modal'>
+            <div className='modal-main register-modal'>
                 <div className='flex mx-2 
                         justify-between
                         items-center'>
@@ -23,6 +23,17 @@ function Authmodal({showAuth,closeAuth}) {
                 </div>
                 <div className='mx-6 my-6'>
                     <form>
+                        <label class="block mb-3">
+                            <span class="after:content-['*'] 
+                                    after:ml-0.5 
+                                    after:text-red-500 
+                                    block text-sm 
+                                    font-medium 
+                                    text-slate-700">
+                                Full Name
+                            </span>
+                            <input type="email" name="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="enter your email" />
+                        </label>
                         <label class="block mb-3">
                             <span class="after:content-['*'] 
                                     after:ml-0.5 
@@ -59,13 +70,38 @@ function Authmodal({showAuth,closeAuth}) {
                                     focus:ring-1" 
                                 placeholder="enter your password" />
                         </label>
+                        <label class="block mb-3">
+                            <span class="after:content-['*'] 
+                                    after:ml-0.5 
+                                    after:text-red-500 
+                                    block text-sm 
+                                    font-medium 
+                                    text-slate-700">
+                                Confirm Password
+                            </span>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                class="mt-2 px-3 
+                                    py-2 bg-white 
+                                    border shadow-sm 
+                                    border-slate-300 
+                                    placeholder-slate-400 
+                                    focus:outline-none 
+                                    focus:border-sky-500 
+                                    focus:ring-sky-500 
+                                    block w-full 
+                                    rounded-md sm:text-sm 
+                                    focus:ring-1" 
+                                placeholder="enter your password" />
+                        </label>
                         <button 
                             class="bg-[#e6ac0e] 
                                 py-1.5 mt-2 
                                 text-center text-white 
                                 rounded-md w-full 
                                 font-semibold">
-                            Sign In
+                            Sign Up
                         </button>
                     </form>
                 </div>
@@ -81,7 +117,7 @@ function Authmodal({showAuth,closeAuth}) {
                             text-center text-white 
                             rounded-md w-[140px] 
                             font-semibold">
-                        Sign Up
+                        Sign In
                     </button>
                     <div className='flex
                             justify-center mt-6'>

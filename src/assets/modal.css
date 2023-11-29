@@ -14,7 +14,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    padding: 30px;
+    padding: 15px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -29,6 +29,14 @@
 }
   
 @media only screen and (max-width: 2000px) {
+    .log-modal{
+        width: 20%;
+        height: 50%;
+    }
+    .register-modal{
+        width: 20%;
+        height: 65%;
+    }
     .cart-modal {
         width: 60%;
         height: 60%;
@@ -44,6 +52,14 @@
 }
 
 @media only screen and (max-width: 1440px) {
+    .log-modal{
+        width: 30%;
+        height: 55%;
+    }
+    .register-modal{
+        width: 30%;
+        height: 70%;
+    }
     .cart-modal {
         width: 70%;
         height: 60%;
@@ -52,14 +68,18 @@
         width: 80%;
         height: 50%;
     }
-    .placeorder-modal{
-        width: 80%;
-        height: 50%;
-    }
 }
   
   
 @media only screen and (max-width: 1024px) {
+    .log-modal{
+        width: 50%;
+        height: 45%;
+    }
+    .register-modal{
+        width: 50%;
+        height: 60%;
+    }
     .cart-modal {
         width: 95%;
         height: 50%;
@@ -68,17 +88,58 @@
       width: 90%;
       height: 45%;
     }
-    .placeorder-modal{
-        width: 90%;
-        height: 45%;
-    }
 }
   
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 680px) {
     .modal-main {
-      width: 90%;
-      height: 75%;
-      overflow-y: scroll;
-      padding: 15px;
+        top: 55%;
+    }
+    .log-modal{
+        width: 90%;
+        height: auto;
+    }
+    .register-modal{
+        width: 90%;
+        height: 55%;
+        overflow-y: scroll;
+    }
+    .cart-modal {
+        width: 90%;
+        height: 75%;
+        overflow-y: scroll;
+        padding: 15px;
+    }
+    .product-modal{
+        width: 90%;
+        height: 75%;
+        overflow-y: scroll;
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .modal-main {
+        top: 55%;
+    }
+    .log-modal{
+        width: 90%;
+        height: auto;
+    }
+    .register-modal{
+        width: 90%;
+        height: 70%;
+        overflow-y: scroll;
+    }
+    .cart-modal {
+        width: 90%;
+        height: 75%;
+        overflow-y: scroll;
+        padding: 15px;
+    }
+    .product-modal{
+        width: 90%;
+        height: 75%;
+        overflow-y: scroll;
+        padding: 15px;
     }
 }
