@@ -5,20 +5,17 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
 
-function Authmodal({showAuth,closeAuth}) {
-
-    const showHiddenAuth = showAuth ? "modal display-block": "modal display-none";
+function RegisterUi({onCloseRegister, onCloseAuth}) {
     return (
-        <div className={showHiddenAuth}>
             <div className='modal-main register-modal'>
                 <div className='flex mx-2 
                         justify-between
                         items-center'>
-                    <h2 className='text-[16px] font-[600]'>Auth Modal</h2>
+                    <h2 className='text-[16px] font-[600]'>Sign Up Auth</h2>
                     <FontAwesomeIcon 
                         className='text-dark 
                         text-lg hover:cursor-pointer' 
-                        onClick={closeAuth}
+                        onClick={onCloseAuth}
                         icon={faXmark} />
                 </div>
                 <div className='mx-6 my-6'>
@@ -109,14 +106,16 @@ function Authmodal({showAuth,closeAuth}) {
                     <h6 className='text-sm 
                             font-normal mb-3
                             text-slate-400 '>
-                        --------- Don't have account? ---------
+                        --------- Already have an account? ---------
                     </h6>
                     <button 
                         class="bg-[#020202]
                             w-full py-1.5 px-4 mt-2 
                             text-center text-white 
                             rounded-md w-[140px] 
-                            font-semibold">
+                            font-semibold"
+                        onClick={onCloseRegister}    
+                        >
                         Sign In
                     </button>
                     <div className='flex
@@ -143,8 +142,7 @@ function Authmodal({showAuth,closeAuth}) {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
-export default Authmodal;
+export default RegisterUi;

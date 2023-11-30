@@ -4,13 +4,12 @@ import { faBagShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import Cartmodal from '../Modal/Cartmodal';
 import Authmodal from '../Modal/Authmodal';
-import Registermodal from '../Modal/Registermodal';
 function Topnavigation(props) {
     const [navigationStyle,setNavigationStyle] = useState('navigationWrapper');
     const [showCartModal,setShowCartModal] = useState(false);
     const [showAuthModal,setShowAuthModal] = useState(false);
 
-    const state = useSelector((state)=>state.cartSlice);
+    const state = useSelector((state)=>state);
 
     const handleCart = () =>{
         setShowCartModal(true);
@@ -55,8 +54,8 @@ function Topnavigation(props) {
                             text-[14px] font-[500] font-serif 
                             min-w-[150px] max-w-[150px] p-2 rounded
                             hover:cursor-pointer color-animatedBtn'
-                        onClick={state.items.length !== 0? handleCart : handleUser }>
-                            {state.items.length !== 0 ? 'My Cart' : 'Order Now' }
+                        onClick={state.cartSlice.items.length !== 0? handleCart : handleUser }>
+                            {state.cartSlice.items.length !== 0 ? 'My Cart' : 'Order Now' }
                             
                             {/* <FontAwesomeIcon 
                                 className='navigationIcon' 
@@ -93,7 +92,7 @@ function Topnavigation(props) {
                 </div>
             </div>
             <Cartmodal showCart={showCartModal} closeCart={handleCloseCart} ></Cartmodal>
-            <Registermodal showAuth={showAuthModal} closeAuth={handleCloseAuth}></Registermodal>
+            <Authmodal showAuth={showAuthModal} closeAuth={handleCloseAuth}></Authmodal>
         </div>
     );
 }
