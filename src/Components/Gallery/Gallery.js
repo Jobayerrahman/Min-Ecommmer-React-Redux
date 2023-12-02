@@ -5,7 +5,7 @@ function Gallery() {
     const [ images, setImages ] = useState([]);
 
     useEffect(()=>{
-        axios.get("https://jsonserverdatagolpo.onrender.com/Restora_Foods_Gallery").then((response) => {
+        axios.get("https://jungle-green-jaguar-cuff.cyclic.app/Restora_Foods_Gallery").then((response) => {
             const result = response.data;
             setImages(result);
             });
