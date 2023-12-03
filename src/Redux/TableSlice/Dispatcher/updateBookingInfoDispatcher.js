@@ -3,7 +3,7 @@ import { updated } from "../action";
 
 const updateBookingInfoDispatcher = (bookedInfo) =>{
     return async (dispatch) => {
-        const response = await axios.put(`http://localhost:5000/booking_info/${bookedInfo.id}`,bookedInfo);
+        const response = await axios.put(`https://restorajsondata.onrender.com/Restora_Tables_Booking_Info/${bookedInfo.id}`,bookedInfo);
         const BookedInfo = response.data;
         const BookedStatus = response.status;
         dispatch(updated(BookedInfo,BookedStatus));

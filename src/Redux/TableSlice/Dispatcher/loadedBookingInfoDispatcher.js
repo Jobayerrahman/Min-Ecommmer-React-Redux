@@ -3,7 +3,7 @@ import { loaded } from "../action";
 
 const loadedBookingInfoDispatcher = () =>{
     return async (dispatch) => {
-        const response = await axios.get("http://localhost:5000/booking_info");
+        const response = await axios.get("https://restorajsondata.onrender.com/Restora_Tables_Booking_Info");
         const BookedInfo = response.data;
         dispatch(loaded(BookedInfo));
     }

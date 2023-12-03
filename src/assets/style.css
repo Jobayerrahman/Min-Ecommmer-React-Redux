@@ -67,7 +67,7 @@ body{
 }
 
 .topFixBanner{
-    background-image: url('./image/banner.jpg');
+    background-image: url('../../public/sources/assets/images/banner/Banner-1.jpg');
     min-height: 700px;
     background-attachment: fixed;
     background-position: center;
@@ -385,17 +385,21 @@ body{
     .cetagoryCardWrapper{
         width: 4rem;
         height: 6rem;
+        margin: 10px 5px;
     }
     .cetagoryCardContent{
-        width: 3.5rem;
+        width: 4rem;
         height: 6rem;
         align-content: center;
         flex-wrap: wrap;
         justify-content: center;
     }
     .cetagoryCardContent h2{
-        font-size: 14px;
-        margin: 0px 5px;
+        font-size: 12px;
+        margin: 0px 2px;
         text-align: center;
+    }
+    .cetagoryCardContent span{
+        font-size: 11px;
     }
 }

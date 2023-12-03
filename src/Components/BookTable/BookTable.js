@@ -70,13 +70,13 @@ export default function BookTable(){
                                 w-[140px] h-[240px] object-cover
                                 md:w-[200px] md:h-[300px]
                                 lg:w-[200px] lg:h-[400px]" 
-                                src="http://localhost:3002/sources/assets/images/pizza/Pizza-2.jpg" 
+                                src="https://restora-ecom-site.vercel.app/sources/assets/images/burger/Burger-2.jpg" 
                             />
                         <img className="mx-[20px] mt-[40px] 
                                 w-[140px] h-[240px] object-cover
                                 md:w-[200px] md:h-[300px]
                                 lg:w-[200px] lg:h-[400px]" 
-                                src="http://localhost:3002/sources/assets/images/pizza/Pizza-3.jpg" 
+                                src="https://restora-ecom-site.vercel.app/sources/assets/images/pizza/Pizza-3.jpg" 
                             />
                     </div>)
                 }
