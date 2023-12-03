@@ -46,7 +46,7 @@ function Productdetails(props) {
                                 cursor-pointer">
                             <h6 className='text-[12px] font-semibold'>M</h6>
                         </div>
-                        <div class="w-6 h-6 
+                        <div className="w-6 h-6 
                                 bg-purple-50 
                                 rounded-full 
                                 border-2 m-1
@@ -58,7 +58,7 @@ function Productdetails(props) {
                                 cursor-pointer">
                         <h6 className='text-[12px] font-semibold'>lg</h6>
                         </div>
-                        <div class="w-6 h-6 
+                        <div className="w-6 h-6 
                                 bg-purple-50 
                                 rounded-full 
                                 border-2 m-1
@@ -84,7 +84,7 @@ function Productdetails(props) {
                         Price - $300.00
                     </h4>
                     <button 
-                        class="bg-slate-900 
+                        className="bg-slate-900 
                             p-2 text-center 
                             text-white 
                             rounded-md w-[150px] 

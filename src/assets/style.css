@@ -319,6 +319,15 @@ body{
 }
 
 
+/****************** toast CSS ******************/
+.toast-message {
+    font-size: 14px;
+    width: 34vw;
+    margin-top: 60px;
+    padding: 30px 20px;
+}
+
+
 /****************** No Scroll bar ******************/
 .hiddenScrollbar::-webkit-scrollbar {
     display: none;

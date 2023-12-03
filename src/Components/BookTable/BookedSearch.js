@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
 import searchTableDispatcher from "../../Redux/TableSlice/Dispatcher/searchTableDispatcher";
 
 function BookedSearch({onShowTable}) {
@@ -13,7 +14,11 @@ function BookedSearch({onShowTable}) {
 
     const handleSearch = (e) =>{
         e.preventDefault();
-        dispatch(searchTableDispatcher(searchedInfo));
+        if(isNaN(searchedInfo)){
+            toast.error("Please enter your mobile number.", {position: toast.POSITION.BOTTOM_RIGHT} );
+        }else{
+            dispatch(searchTableDispatcher(searchedInfo));
+        }
         setSearchedInfo('');
     }
 

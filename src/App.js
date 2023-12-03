@@ -1,10 +1,12 @@
 import '../src/assets/style.css';
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Components/Footer/Footer";
 import Gallery from "./Components/Gallery/Gallery";
 import TopBanner from "./Components/Banner/TopBanner";
 import Cetagory from "./Components/Cetagory/Cetagory";
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import Product from "../src/Components/Product/Product";
 import BookTable from "./Components/BookTable/BookTable";
 import Productcard from "./Components/Product/Productcard";
@@ -61,6 +63,7 @@ function App() {
         <Gallery/>
         <BookTable/>
         <Footer/>
+        <ToastContainer />
       </div>
   );
 }

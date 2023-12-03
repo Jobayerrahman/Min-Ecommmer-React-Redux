@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import { placeOrderAdded } from '../../Redux/CartSlice/actions';
 
 function PlaceOrder() {
@@ -35,18 +36,24 @@ function PlaceOrder() {
 
     const handlePlaceOrder = (e) =>{
         e.preventDefault();
-        if(name !== '' || mobile !== '' || address !== '' || password !== ''){
-            const orderObj = {
-                name: name, 
-                mobile: mobile, 
-                address:address, 
-                email: email, 
-                password: password,  
-                discountcode: discountCode
-            };
-            dispatch(placeOrderAdded(orderObj));
+        if(name !== '' && mobile !== '' && address !== '' && password !== ''){
+            if(isNaN(mobile)){
+                toast.error("Mobile dmust be number!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+            }else{
+                const orderObj = {
+                    name: name, 
+                    mobile: mobile, 
+                    address:address, 
+                    email: email, 
+                    password: password,  
+                    discountcode: discountCode
+                };
+                dispatch(placeOrderAdded(orderObj));
+                toast.success("Placing Order Successfully", {position: toast.POSITION.BOTTOM_RIGHT,} );
+            }
+        }else{
+            toast.error("Field can not be empty", {position: toast.POSITION.BOTTOM_RIGHT} );
         }
-        console.log("Order Value Not Updated");
         setName('');
         setMobile('');
         setAddress('');

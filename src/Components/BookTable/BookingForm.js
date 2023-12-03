@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
 import addBookingInfoDispatcher from "../../Redux/TableSlice/Dispatcher/addBookingInfoDispatcher";
 
 function BookingForm({onShowTable}) {
     const dispatch = useDispatch();
-    const [ bookingName, setBookingName ] = useState();
-    const [ mobile, setMobile ] = useState();
-    const [ tableNumber, setTableNumber ] = useState();
-    const [ member, setMember ] = useState();
-    const [ time, setTime ] = useState();
+    const [ bookingName, setBookingName ] = useState('');
+    const [ mobile, setMobile ] = useState('');
+    const [ tableNumber, setTableNumber ] = useState('');
+    const [ member, setMember ] = useState('');
+    const [ time, setTime ] = useState('');
 
     const handleFormInput = (e) =>{
         const inputValue = e.target.value;
@@ -31,8 +32,17 @@ function BookingForm({onShowTable}) {
 
     const handleTableBook = (e) =>{
         e.preventDefault();
-        const bookedInfo = {name: bookingName, mobile: mobile, table: tableNumber, member: member, time: time};
-        dispatch(addBookingInfoDispatcher(bookedInfo));
+        if(bookingName !== '' && mobile !== '' && tableNumber !== '' && member !== '' && time !== ''){
+            if(isNaN(mobile)){
+                toast.error("Mobile field must be number!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+            }else{
+                const bookedInfo = {name: bookingName, mobile: mobile, table: tableNumber, member: member, time: time};
+                dispatch(addBookingInfoDispatcher(bookedInfo));
+                toast.success("Table booking successfully!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+            }
+        }else{
+            toast.error("Field can not be empty!", {position: toast.POSITION.TOP_RIGHT, className: "toast-message"} );
+        }
         setBookingName('');
         setMobile('');
         setTableNumber('');

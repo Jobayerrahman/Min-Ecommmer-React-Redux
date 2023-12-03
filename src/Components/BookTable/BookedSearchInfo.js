@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
 import updateBookingInfoDispatcher from '../../Redux/TableSlice/Dispatcher/updateBookingInfoDispatcher';
 import deleteBookingInfoDispatcher from "../../Redux/TableSlice/Dispatcher/deleteBookingInfoDispatcher";
 
@@ -21,6 +22,7 @@ function BookedSearchInfo() {
     const handleDelete = (bookedId) =>{
         dispatch(deleteBookingInfoDispatcher(bookedId));
         setIsEdit(!isEdit);
+        toast.warning("Booking Information is deleted!", {position: toast.POSITION.BOTTOM_RIGHT,} );
     }
 
     const handleFormInput = (e) =>{
@@ -44,12 +46,19 @@ function BookedSearchInfo() {
 
     const handleUpdate = (e) =>{
         e.preventDefault();
-        const updatedInfo = {id:state.searchBookedInfos.id, name: bookingName, mobile: mobile, table: tableNumber, member: member, time: time};
-        dispatch(updateBookingInfoDispatcher(updatedInfo));
+        if(bookingName !== '' && mobile !== '' && tableNumber !== '' && member !== '' && time !== ''){
+            if(isNaN(mobile)){
+                toast.error("Mobile field must be number!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+            }else{
+                const updatedInfo = {id:state.searchBookedInfos.id, name: bookingName, mobile: mobile, table: tableNumber, member: member, time: time};
+                dispatch(updateBookingInfoDispatcher(updatedInfo));
+                toast.success("Table booking update successfully!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+            }
+        }else{
+            toast.error("Field can not be empty!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+        }
         setIsEdit(!isEdit);
     }
-
-    console.log(state);
 
     return (
         <div className='w-[100%]'>
