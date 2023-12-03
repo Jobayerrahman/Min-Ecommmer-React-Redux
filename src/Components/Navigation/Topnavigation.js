@@ -43,7 +43,7 @@ function Topnavigation(props) {
             <div className={navigationStyle}>
                 <div>
                     <a className='navigationTitle'>
-                        Restura
+                        Restora
                     </a>
                 </div>
                 <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
