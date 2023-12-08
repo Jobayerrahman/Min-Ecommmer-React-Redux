@@ -1,170 +1,137 @@
 {
-  "products": [
-    {
-      "id": 1,
-      "title": "Burger OóClock",
-      "price": 23.54,
-      "category": "Buger",
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-1.jpg",
-      "date": "2023-05-02",
-      "time": "12:12"
-    },
-    {
-      "id": 2,
-      "title": "Burger OóClock",
-      "price": 23.54,
-      "category": "Buger",
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-2.jpg",
-      "date": "2023-05-02",
-      "time": "12:12"
-    },
-    {
-      "id": 3,
-      "title": "Burger OóClock",
-      "price": 23.54,
-      "category": "Buger",
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-3.jpg",
-      "date": "2023-05-02",
-      "time": "12:12"
-    },
-    {
-      "id": 4,
-      "title": "Burger OóClock",
-      "price": 23.54,
-      "category": "Buger",
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-4.jpg",
-      "date": "2023-05-02",
-      "time": "12:12"
-    },
-    {
-      "id": 5,
-      "title": "Burger OóClock",
-      "price": 23.54,
-      "category": "Buger",
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-5.jpg",
-      "date": "2023-05-02",
-      "time": "12:12"
-    },
-    {
-      "id": 12,
-      "title": "Pizza OóClock",
-      "price": 23.54,
-      "category": "Pizza",
-      "image": "http://localhost:3002/sources/assets/images/pizza/Pizza-1.jpg",
-      "date": "2023-05-02",
-      "time": "12:12"
-    },
-    {
-      "id": 13,
-      "title": "Pizza OóClock",
-      "price": 23.54,
-      "category": "Pizza",
-      "image": "http://localhost:3002/sources/assets/images/pizza/Pizza-2.jpg",
-      "date": "2023-05-02",
-      "time": "12:12"
-    },
-    {
-      "id": 14,
-      "title": "Pizza OóClock",
-      "price": 23.54,
-      "category": "Pizza",
-      "image": "http://localhost:3002/sources/assets/images/pizza/Pizza-3.jpg",
-      "date": "2023-05-02",
-      "time": "12:12"
-    },
-    {
-      "id": 15,
-      "title": "Pizza OóClock",
-      "price": 23.54,
-      "category": "Pizza",
-      "image": "http://localhost:3002/sources/assets/images/pizza/Pizza-4.jpg",
-      "date": "2023-05-02",
-      "time": "12:12"
-    }
+  "Restora_Order_User":[
+        {
+          "name": "Devid Warner",
+          "mobile": "123456878",
+          "email": "devid.warner@gmail.com",
+          "password": "pass",
+          "id": 1
+        }
   ],
-  "order": [
-    {
-      "name": "Devid Warner",
-      "mobile": "123456878",
-      "email": "devid.warner@gmail.com",
-      "password": "pass",
-      "address": "78/c, Jonas stress",
-      "discountcode": "",
-      "numbersOfProduct": 1,
-      "numbersOfItem": 3,
-      "totalPrice": 70.62,
-      "discount": 0,
-      "discountedPrice": 70.62,
-      "id": 1
-    },
-    {
-      "name": "Devid Warner",
-      "mobile": "123456789",
-      "email": "devid.warner@gmail.com",
-      "password": "password",
-      "address": "78/c, Jonas stress",
-      "discountcode": "1452",
-      "numbersOfProduct": 2,
-      "numbersOfItem": 6,
-      "totalPrice": 141.23999999999998,
-      "discount": 0,
-      "discountedPrice": 141.23999999999998,
-      "id": 2
-    }
+    
+  "Restora_Foods_Product" :[
+      {
+          "id"        : 1,
+          "title"     : "Burger OóClock",
+          "price"     : 23.54,
+          "category"  : "Buger",
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-1.jpg",
+          "date"      : "2023-05-02",
+          "time"      : "12:12"
+      },
+      {
+          "id"        : 2,
+          "title"     : "Burger OóClock",
+          "price"     : 23.54,
+          "category"  : "Buger",
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-2.jpg",
+          "date"      : "2023-05-02",
+          "time"      : "12:12"
+      },
+      {
+          "id"        : 3,
+          "title"     : "Burger OóClock",
+          "price"     : 23.54,
+          "category"  : "Buger",
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-3.jpg",
+          "date"      : "2023-05-02",
+          "time"      : "12:12"
+      },
+      {
+          "id"        : 4,
+          "title"     : "Burger OóClock",
+          "price"     : 23.54,
+          "category"  : "Buger",
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-4.jpg",
+          "date"      : "2023-05-02",
+          "time"      : "12:12"
+      },
+      {
+          "id"        : 12,
+          "title"     : "Pizza OóClock",
+          "price"     : 23.54,
+          "category"  : "Pizza",
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/pizza/Pizza-1.jpg",
+          "date"      : "2023-05-02",
+          "time"      : "12:12"
+      },
+      {
+          "id"        : 13,
+          "title"     : "Pizza OóClock",
+          "price"     : 23.54,
+          "category"  : "Pizza",
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/pizza/Pizza-2.jpg",
+          "date"      : "2023-05-02",
+          "time"      : "12:12"
+      },
+      {
+          "id"        : 14,
+          "title"     : "Pizza OóClock",
+          "price"     : 23.54,
+          "category"  : "Pizza",
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/pizza/Pizza-3.jpg",
+          "date"      : "2023-05-02",
+          "time"      : "12:12"
+      },
+      {
+          "id"        : 15,
+          "title"     : "Pizza OóClock",
+          "price"     : 23.54,
+          "category"  : "Pizza",
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/pizza/Pizza-4.jpg",
+          "date"      : "2023-05-02",
+          "time"      : "12:12"
+      }
   ],
-  "images": [
-    {
-      "id": 1,
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-1.jpg"
-    },
-    {
-      "id": 2,
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-2.jpg"
-    },
-    {
-      "id": 3,
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-3.jpg"
-    },
-    {
-      "id": 4,
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-4.jpg"
-    },
-    {
-      "id": 5,
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-5.jpg"
-    },
-    {
-      "id": 6,
-      "image": "http://localhost:3002/sources/assets/images/burger/Burger-6.jpg"
-    },
-    {
-      "id": 12,
-      "image": "http://localhost:3002/sources/assets/images/pizza/Pizza-1.jpg"
-    },
-    {
-      "id": 13,
-      "image": "http://localhost:3002/sources/assets/images/pizza/Pizza-2.jpg"
-    },
-    {
-      "id": 14,
-      "image": "http://localhost:3002/sources/assets/images/pizza/Pizza-3.jpg"
-    },
-    {
-      "id": 15,
-      "image": "http://localhost:3002/sources/assets/images/pizza/Pizza-4.jpg"
-    }
+
+  "Restora_Foods_Orders":[
+        
   ],
-  "booking_info": [
-    {
-      "id": 1,
-      "name": "Devid Warner",
-      "mobile": "123456789",
-      "table": "Table 03",
-      "member": "3 member",
-      "time": "3:00 pm"
-    }
+    
+  "Restora_Foods_Gallery" :[
+      {
+          "id"        : 1,
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-1.jpg"
+      },
+      {
+        "id"        : 14,
+        "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/pizza/Pizza-3.jpg"
+      },
+      {
+        "id"        : 4,
+        "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-4.jpg"
+      },
+      {
+        "id"        : 5,
+        "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-5.jpg"
+      },
+      {
+        "id"        : 12,
+        "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/pizza/Pizza-1.jpg"
+      },
+      {
+          "id"        : 2,
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-2.jpg"
+      },
+      {
+          "id"        : 13,
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/pizza/Pizza-2.jpg"
+      },
+      {
+        "id"        : 6,
+        "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-6.jpg"
+      },
+      {
+          "id"        : 15,
+          "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/pizza/Pizza-4.jpg"
+      },
+      {
+        "id"        : 3,
+        "image"     : "https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-3.jpg"
+      }
   ],
-  "tables": [
+    
+  "Restora_Foods_Tables":[
     {
       "id": 1,
       "table": "Table 01",
@@ -206,6 +173,17 @@
       "status": "",
       "time": "6:00pm",
       "color": "#e6ac0e"
+    }
+  ],
+
+  "Restora_Tables_Booking_Info":[
+    {
+      "id": 1,
+      "name": "Devid Warner",
+      "mobile": "123456789",
+      "table": "Table 03",
+      "member": "3 member",
+      "time": "3:00 pm"
     }
   ]
 }

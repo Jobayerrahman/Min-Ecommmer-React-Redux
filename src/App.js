@@ -6,13 +6,14 @@ import Gallery from "./Components/Gallery/Gallery";
 import TopBanner from "./Components/Banner/TopBanner";
 import Cetagory from "./Components/Cetagory/Cetagory";
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import Product from "../src/Components/Product/Product";
 import BookTable from "./Components/BookTable/BookTable";
 import Productcard from "./Components/Product/Productcard";
 import Topnavigation from "./Components/Navigation/Topnavigation";
 import fatchTableDispatcher from './Redux/TableSlice/Dispatcher/fatchTableDispatcher';
 import loadedBookingInfoDispatcher from './Redux/TableSlice/Dispatcher/loadedBookingInfoDispatcher';
+import ProductCarousel from './Components/Product/ProductCarousel';
 function App() {
   const dispatch = useDispatch();
   const [items, setItems] = useState([]);
@@ -62,6 +63,7 @@ function App() {
         <Product  cetagory={itemCetagory} isItem={isItems} />
         <Gallery/>
         <BookTable/>
+        <ProductCarousel/>
         <Footer/>
         <ToastContainer />
       </div>

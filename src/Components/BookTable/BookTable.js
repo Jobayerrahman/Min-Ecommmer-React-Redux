@@ -67,16 +67,16 @@ export default function BookTable(){
                     </div>
                     ):(<div className="flex justify-between min-w-fit md:w-[100%] md:justify-center">
                         <img className="mx-[20px] mb-[40px] 
-                                w-[140px] h-[240px] object-cover
+                                w-[120px] h-[240px] object-cover
                                 md:w-[200px] md:h-[300px]
                                 lg:w-[200px] lg:h-[400px]" 
-                                src="https://restora-ecom-site.vercel.app/sources/assets/images/burger/Burger-2.jpg" 
+                                src="https://restora-food-ecom.vercel.app/sources/assets/images/burger/Burger-2.jpg" 
                             />
                         <img className="mx-[20px] mt-[40px] 
-                                w-[140px] h-[240px] object-cover
+                                w-[120px] h-[240px] object-cover
                                 md:w-[200px] md:h-[300px]
                                 lg:w-[200px] lg:h-[400px]" 
-                                src="https://restora-ecom-site.vercel.app/sources/assets/images/pizza/Pizza-3.jpg" 
+                                src="https://restora-food-ecom.vercel.app/sources/assets/images/pizza/Pizza-3.jpg" 
                             />
                     </div>)
                 }
