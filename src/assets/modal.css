@@ -66,7 +66,7 @@
     }
     .product-modal{
         width: 80%;
-        height: 50%;
+        height: 60%;
     }
 }
   
@@ -86,7 +86,7 @@
     }
     .product-modal {
       width: 90%;
-      height: 45%;
+      height: 65%;
     }
 }
 
@@ -94,6 +94,11 @@
     .cart-modal {
         width: 90%;
         height: 40%;
+    }
+
+    .product-modal{
+        width: 90%;
+        height: 35%;
     }
 }
   
@@ -116,9 +121,7 @@
     }
     .product-modal{
         width: 90%;
-        height: 75%;
-        overflow-y: scroll;
-        padding: 15px;
+        height: 45%;
     }
 }
 

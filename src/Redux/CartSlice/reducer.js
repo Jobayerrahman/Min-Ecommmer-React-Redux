@@ -103,7 +103,8 @@ const reducer = (state=initialState,action) =>{
                         discountedPrice: action.payload.dataObject.discountedPrice,
                         status: action.payload.status,
                     }
-                ]
+                ],
+                items:[]
             }
     
         default:

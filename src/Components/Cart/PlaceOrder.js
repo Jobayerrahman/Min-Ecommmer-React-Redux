@@ -49,10 +49,10 @@ function PlaceOrder() {
                     discountcode: discountCode
                 };
                 dispatch(placeOrderAdded(orderObj));
-                toast.success("Placing Order Successfully", {position: toast.POSITION.BOTTOM_RIGHT,} );
+                toast.success("Placing Order Successfully", {position: toast.POSITION.TOP_CENTER,} );
             }
         }else{
-            toast.error("Field can not be empty", {position: toast.POSITION.BOTTOM_RIGHT} );
+            toast.error("Field can not be empty", {position: toast.POSITION.TOP_CENTER} );
         }
         setName('');
         setMobile('');

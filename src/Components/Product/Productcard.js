@@ -20,7 +20,8 @@ export default function Productcard({...product}){
         setShowProductModal(false);
     }
 
-    const handleCart = () =>{
+    const handleCart = (e) =>{
+        e.stopPropagation();
         const itemObject = {name: product.title, price: product.price, count: 1, image: product.image, updatedPrice: product.price}
         dispatch(cartItemAdded(itemObject));
         setShowCartModal(true);
@@ -32,9 +33,9 @@ export default function Productcard({...product}){
     const productName= product.title ? product.title.substring(0, 10) : '';
     return(
         <>
-            <div className="productCardWrapper">
+            <div className="productCardWrapper" onClick={handleProduct}>
                 <img className='productImage' src={product.image}/>
-                <div className='productCardContent' onClick={handleProduct}>
+                <div className='productCardContent'>
                     <h2>{productName}</h2>
                     <h5>{product.price}</h5>
                 </div>
@@ -44,7 +45,7 @@ export default function Productcard({...product}){
                     <a className="btn" onClick={()=> setShowMore(!showMore)}>{showMore ? " Show less" : " Show more"}</a>
                 </p> */}
             </div>
-            <Productmodal showProduct={showProductModal} closeProduct={handleCloseProduct} />
+            <Productmodal showProduct={showProductModal} closeProduct={handleCloseProduct} {...product} />
             <Cartmodal showCart={showCartModal} closeCart={handleCloseCart} ></Cartmodal>
             
         </>

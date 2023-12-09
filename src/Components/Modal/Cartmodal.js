@@ -65,7 +65,7 @@ export default function Cartmodal({showCart,closeCart}) {
         }
         
         dispatch(addOrderDispatcher(orderObject));
-        toast.success("Your Order Place Successfully", {position: toast.POSITION.BOTTOM_RIGHT,} );
+        toast.success("Your Order Place Successfully", {position: toast.POSITION.TOP_CENTER,} );
     }
 
     return (
@@ -83,6 +83,7 @@ export default function Cartmodal({showCart,closeCart}) {
                         className='text-dark 
                         mr-2 p-2
                         text-lg
+                        bg-slate-300
                         rounded-full
                         hover:cursor-pointer' 
                         onClick={closeCart}
@@ -308,7 +309,7 @@ export default function Cartmodal({showCart,closeCart}) {
                 
                 {/* Modal Footer View */}
                 <div className='flex justify-between mt-4'>
-                    <h4 className='text-[14px] my-3 mx-2
+                    <h4 className='text-[12px] my-3 mx-2
                             font-[600] text-[#2b2b2b] lg:text-[16px]'>
                         Total Price - ${(Math.round(totalPrice * 100) / 100).toFixed(2)}
                     </h4>

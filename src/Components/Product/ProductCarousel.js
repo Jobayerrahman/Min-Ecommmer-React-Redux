@@ -31,18 +31,16 @@ function ProductCarousel() {
         console.log("Yes previous Click");
         const element =nextList.pop();
         originalList.unshift(element);
-        console.log(originalList, element,nextList);
+        // console.log(originalList, element,nextList);
         // dispatch(nextProduct);
     }
-
-    console.log(originalList);
 
     const handleNext = () =>{
         console.log("Yes next Click");
         const element = originalList.shift()
         nextList.push(element);
         // dispatch(nextProduct);
-        console.log(originalList, element,nextList);
+        // console.log(originalList, element,nextList);
     }
     
 
