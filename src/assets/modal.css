@@ -62,7 +62,7 @@
     }
     .cart-modal {
         width: 70%;
-        height: 60%;
+        height: 65%;
     }
     .product-modal{
         width: 80%;
@@ -82,15 +82,22 @@
     }
     .cart-modal {
         width: 95%;
-        height: 50%;
+        height: 75%;
     }
     .product-modal {
       width: 90%;
       height: 45%;
     }
 }
+
+@media only screen and (max-width: 900px) {
+    .cart-modal {
+        width: 90%;
+        height: 40%;
+    }
+}
   
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 768px) {
     .modal-main {
         top: 55%;
     }
@@ -105,9 +112,7 @@
     }
     .cart-modal {
         width: 90%;
-        height: 75%;
-        overflow-y: scroll;
-        padding: 15px;
+        height: 55%;
     }
     .product-modal{
         width: 90%;

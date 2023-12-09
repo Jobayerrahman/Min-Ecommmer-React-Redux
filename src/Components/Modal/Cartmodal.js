@@ -2,8 +2,9 @@ import '../../assets/modal.css';
 import React, { useEffect, useState }from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSquarePlus, faSquareMinus } from '@fortawesome/free-solid-svg-icons';
 import PlaceOrder from '../Cart/PlaceOrder';
+import { toast } from 'react-toastify';
 import { cartItemDecrement, cartItemIncrement, cartItemRemoved } from '../../Redux/CartSlice/actions';
 import addOrderDispatcher from '../../Redux/CartSlice/Dispatcher/addOrderDispatcher';
 
@@ -64,7 +65,7 @@ export default function Cartmodal({showCart,closeCart}) {
         }
         
         dispatch(addOrderDispatcher(orderObject));
-        console.log(state)
+        toast.success("Your Order Place Successfully", {position: toast.POSITION.BOTTOM_RIGHT,} );
     }
 
     return (
@@ -82,71 +83,81 @@ export default function Cartmodal({showCart,closeCart}) {
                         className='text-dark 
                         mr-2 p-2
                         text-lg
-                        bg-slate-300
                         rounded-full
                         hover:cursor-pointer' 
                         onClick={closeCart}
-                        icon={faXmark} />
+                        icon={faCircleXmark} />
                 </div>
                 <div className='flex 
                         flex-wrap justify-between 
-                        w-[100%] h-[100%] 
-                        md:flex-nowrap lg:flex-nowrap'>
-                    <div className='flex flex-col overflow-y-scroll hiddenScrollbar w-[100%] md:w-[400px] lg:w-[500px] md:h-[300px] lg:h-[350px]'>
+                        w-full h-[800px] 
+                        md:flex-nowrap lg:flex-nowrap lg:h-full 2xl:h-full'>
+                    <div className='flex flex-col items-center
+                            overflow-y-scroll hiddenScrollbar 
+                            w-[100%] h-[250px] mb-3 p-2 rounded-md
+                            border-solid border-2 border-[#f1f5f9]
+                            shadow-lg shadow-state-200/50
+                            md:w-[70%] md:h-[400px]
+                            lg:w-[70%] lg:h-[400px]
+                            md:border-none md:shadow-none
+                            2xl:w-[70%] 2xl:h-[400px]'>
                         {showPlaceOrder ? (
                             <PlaceOrder/>
                         ):(
                             // Cart Item
                             state.items.map((item)=>
-                                (<div className='flex items-center flex-row min-w-full h-[80px] md:mb-2 lg:mb-2'>
+                                (<div className='flex items-center flex-row mt-1
+                                        min-w-full h-[80px] 
+                                        md:mb-2 lg:mb-2 2xl:w-[100%] 2xl:px-5 2xl:mt-3'>
                                     <div className='mx-1 md:mx-2 lg:mx-4'>
-                                        <FontAwesomeIcon className='text-dark p-2text-lghover:cursor-pointer' icon={faXmark} onClick={() => handleRemoveItem(item.id)} />
+                                        <FontAwesomeIcon 
+                                            className='text-dark text-[14px] hover:cursor-pointer' 
+                                            icon={faCircleXmark} 
+                                            onClick={() => handleRemoveItem(item.id)} />
                                     </div>
-                                    <div className='flex items-center'>
+                                    <div className='flex items-center p-[5px] w-[100%] bg-[#e2e8f0] rounded-md 2xl:w-[100%] 2xl:p-4'>
                                         <img className='w-[50px] h-[40px] 
                                                 object-coverrounded 
                                                 rounded-md 
                                                 md:w-[60px] md:h-[40px] 
                                                 lg:w-[80px] lg:h-[60px]' 
                                                 src={item.image} alt='Product Image'/>
-                                        <div className='flex flex-row items-center'>
-                                            <div className='flex flex-row mx-2 mb-3 lg:mx-5'>
-                                                <h2 className='text-[12px] 
-                                                        font-bold mx-2 mt-2 
-                                                        md:text-[14px] 
-                                                        lg:mx-5 lg:mt-1 lg:text-[18px]'> 
-                                                        {item.name} 
-                                                </h2>
-                                                <spna className='text-[12px] 
-                                                            font-medium mx-1 mt-1 
-                                                            lg:mx-5 lg:mt-1 
-                                                            md:text-[12px] 
-                                                            lg:mx-5 lg:text-[14px]'>
-                                                        ${(Math.round(item.price * 100) / 100).toFixed(2)}
-                                                </spna>
+                                        <div className='flex flex-row items-center 2xl:w-[100%] 2xl:mx-[5px]'>
+                                            <div className='flex flex-row mx-2 mt-2 mb-3 lg:mx-5 2xl:w-[70%]'>
+                                                <div className='w-3/5'>
+                                                    <h2 className='text-[12px] 
+                                                            font-[700] m-0
+                                                            md:text-[14px] 
+                                                            lg:m-0 lg:text-[18px]'> 
+                                                            {item.name} 
+                                                    </h2>
+                                                </div>
+                                                <div className='w-2/5'>
+                                                    <spna className='text-[12px] 
+                                                                font-[600] m-0 
+                                                                md:text-[12px] 
+                                                                lg:text-[14px]'>
+                                                            ${(Math.round(item.price * 100) / 100).toFixed(2)}
+                                                    </spna>
+                                                </div>
                                             </div>
-                                            <div className='flex flex-nowrap items-center my-1 lg:mx-2 mb-3'>
+                                            <div className='flex flex-nowrap items-center my-1 lg:mx-2 mb-3 2xl:w-[30%]'>
                                                 <button 
-                                                    className='text-[14px] 
-                                                        font-extrabold mx-1 
-                                                        px-2 pb-1
-                                                        bg-slate-900
-                                                        lg:mx-2 lg:px-3
-                                                        text-white
-                                                        rounded-md lg:text-[20px]' 
-                                                    onClick={() => handleDecrement(item.id,item.price,item.count)}>
-                                                    -
+                                                    className='mx-1 lg:mx-2'>
+                                                    <FontAwesomeIcon 
+                                                        className='text-dark p-2 text-[20px] hover:cursor-pointer' 
+                                                        icon={faSquareMinus} onClick={() => handleDecrement(item.id,item.price,item.count)} />
                                                 </button>
-                                                <h6 className='text-xl font-bold mx-2'>{item.count}</h6>
+                                                <h6 className='text-[12px] 
+                                                                font-[800] m-0 
+                                                                md:text-[12px] 
+                                                                lg:text-[14px]'>{item.count}</h6>
                                                 <button 
-                                                    className='text-[14px] 
-                                                        font-extrabold 
-                                                        mx-1 px-2 pb-1
-                                                        bg-slate-900
-                                                        text-white lg:px-3
-                                                        rounded-md lg:mx-2  lg:text-[20px]' 
-                                                    onClick={()=>handleIncrement(item.id,item.price)}>
-                                                    +
+                                                    className='mx-1 lg:mx-2'>
+                                                    <FontAwesomeIcon 
+                                                        className='text-dark p-2 text-[20px] hover:cursor-pointer' 
+                                                        icon={faSquarePlus} 
+                                                        onClick={()=>handleIncrement(item.id,item.price)} />
                                                 </button>
                                             </div>
                                         </div>
@@ -157,36 +168,38 @@ export default function Cartmodal({showCart,closeCart}) {
                     </div>
 
                     {/* Cart Info Table */}
-                    <div className='w-[100%] h-[400px] 
-                            flex flex-col p-4
+                    <div className='flex flex-col p-4
                             overflow-y-scroll hiddenScrollbar
                             bg-[#e2e8f0] rounded-md 
+                            w-[100%] h-[250px]
+                            shadow-lg shadow-state-200/50
                             md:w-[250px] md:h-[400px]
-                            lg:w-[300px] lg:h-[400px]'>
+                            lg:w-[30%] lg:h-[400px]
+                            2xl:w-[30%] 2xl:h-[400px]'>
                         {state.isPlaceOrders ? (
-                            <table className="mt-3 w-[100%] h-[400px] p-5 rounded-md">
+                            <table className="mt-3 w-[100%] h-full p-5 rounded-md">
                                 <tr className="flex justify-start w-[100%] py-2">
                                     <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Orderer Name:</h2>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Orderer Name:</h2>
                                     </td>
                                     <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">{state.placeOrders.name}</h4>
+                                        <h4 className="text-[12px] font-[400] mx-4 2xl:text-[16px]">{state.placeOrders.name}</h4>
                                     </td>
                                 </tr>
                                 <tr className="flex justify-start w-[100%] py-2">
                                     <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Orderer Mobile:</h2>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Orderer Mobile:</h2>
                                     </td>
                                     <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">{state.placeOrders.mobile}</h4>
+                                        <h4 className="text-[12px] font-[400] mx-4 2xl:text-[16px]">{state.placeOrders.mobile}</h4>
                                     </td>
                                 </tr>
                                 <tr className="flex justify-start w-[100%] py-2">
                                     <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Address:</h2>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Address:</h2>
                                     </td>
                                     <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">{state.placeOrders.address}</h4>
+                                        <h4 className="text-[12px] font-[400] mx-4 2xl:text-[16px]">{state.placeOrders.address}</h4>
                                     </td>
                                 </tr>
                                 {/* <tr className="flex justify-start w-[100%] py-2">
@@ -199,42 +212,42 @@ export default function Cartmodal({showCart,closeCart}) {
                                 </tr> */}
                                 <tr className="flex justify-start w-[100%] py-2">
                                     <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Numbers of Product:</h2>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Numbers of Product:</h2>
                                     </td>
                                     <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">{totalProduct}</h4>
-                                    </td>
-                                </tr>
-                                <tr className="flex justify-start w-[100%] py-2">
-                                    <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Numbers of Item:</h2>
-                                    </td>
-                                    <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">{totalItem}</h4>
+                                        <h4 className="text-[12px] font-[600] mx-4 2xl:text-[16px]">{totalProduct}</h4>
                                     </td>
                                 </tr>
                                 <tr className="flex justify-start w-[100%] py-2">
                                     <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Total Price:</h2>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Numbers of Item:</h2>
                                     </td>
                                     <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">${(Math.round(totalPrice * 100) / 100).toFixed(2)}</h4>
-                                    </td>
-                                </tr>
-                                <tr className="flex justify-start w-[100%] py-2">
-                                    <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Discount Amount:</h2>
-                                    </td>
-                                    <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">0%</h4>
+                                        <h4 className="text-[12px] font-[600] mx-4 2xl:text-[16px]">{totalItem}</h4>
                                     </td>
                                 </tr>
                                 <tr className="flex justify-start w-[100%] py-2">
                                     <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Discounted Price:</h2>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Total Price:</h2>
                                     </td>
                                     <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">$300</h4>
+                                        <h4 className="text-[12px] font-[600] mx-4 2xl:text-[18px]">${(Math.round(totalPrice * 100) / 100).toFixed(2)}</h4>
+                                    </td>
+                                </tr>
+                                <tr className="flex justify-start w-[100%] py-2">
+                                    <td>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[24px]">Discount Amount:</h2>
+                                    </td>
+                                    <td>
+                                        <h4 className="text-[12px] font-[600] mx-4 2xl:text-[18px]">0%</h4>
+                                    </td>
+                                </tr>
+                                <tr className="flex justify-start w-[100%] py-2">
+                                    <td>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[24px]">Discounted Price:</h2>
+                                    </td>
+                                    <td>
+                                        <h4 className="text-[12px] font-[600] mx-4 2xl:text-[18px]">$300</h4>
                                     </td>
                                 </tr>
                             </table>
@@ -250,42 +263,42 @@ export default function Cartmodal({showCart,closeCart}) {
                                 </tr> */}
                                 <tr className="flex justify-start w-[100%] py-2">
                                     <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Numbers of Product:</h2>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Numbers of Product:</h2>
                                     </td>
                                     <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">{totalProduct}</h4>
-                                    </td>
-                                </tr>
-                                <tr className="flex justify-start w-[100%] py-2">
-                                    <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Numbers of Item:</h2>
-                                    </td>
-                                    <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">{totalItem}</h4>
+                                        <h4 className="text-[12px] font-[400] mx-4 2xl:text-[16px]">{totalProduct}</h4>
                                     </td>
                                 </tr>
                                 <tr className="flex justify-start w-[100%] py-2">
                                     <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Total Price:</h2>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Numbers of Item:</h2>
                                     </td>
                                     <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">${(Math.round(totalPrice * 100) / 100).toFixed(2)}</h4>
-                                    </td>
-                                </tr>
-                                <tr className="flex justify-start w-[100%] py-2">
-                                    <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Discount Amount:</h2>
-                                    </td>
-                                    <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">0%</h4>
+                                        <h4 className="text-[12px] font-[400] mx-4 2xl:text-[16px]">{totalItem}</h4>
                                     </td>
                                 </tr>
                                 <tr className="flex justify-start w-[100%] py-2">
                                     <td>
-                                        <h2 className="font-[24px] font-[700] mx-4">Discounted Price:</h2>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Total Price:</h2>
                                     </td>
                                     <td>
-                                        <h4 className="font-[18px] font-[400] mx-4">${(Math.round(totalPrice * 100) / 100).toFixed(2)}</h4>
+                                        <h4 className="text-[12px] font-[400] mx-4 2xl:text-[16px]">${(Math.round(totalPrice * 100) / 100).toFixed(2)}</h4>
+                                    </td>
+                                </tr>
+                                <tr className="flex justify-start w-[100%] py-2">
+                                    <td>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Discount Amount:</h2>
+                                    </td>
+                                    <td>
+                                        <h4 className="text-[12px] font-[500] mx-4 2xl:text-[16px]">0%</h4>
+                                    </td>
+                                </tr>
+                                <tr className="flex justify-start w-[100%] py-2">
+                                    <td>
+                                        <h2 className="text-[14px] font-[600] mx-4 2xl:text-[16px]">Discounted Price:</h2>
+                                    </td>
+                                    <td>
+                                        <h4 className="text-[12px] font-[400] mx-4 2xl:text-[16px]">${(Math.round(totalPrice * 100) / 100).toFixed(2)}</h4>
                                     </td>
                                 </tr>
                             </table>
@@ -294,36 +307,33 @@ export default function Cartmodal({showCart,closeCart}) {
                 </div>
                 
                 {/* Modal Footer View */}
-                <div className='flex justify-between mt-2'>
-                    <h4 className='text-[15px] mt-3 
-                            font-bold mb-3
-                            text-slate-400 lg:text-[22px]'>
+                <div className='flex justify-between mt-4'>
+                    <h4 className='text-[14px] my-3 mx-2
+                            font-[600] text-[#2b2b2b] lg:text-[16px]'>
                         Total Price - ${(Math.round(totalPrice * 100) / 100).toFixed(2)}
                     </h4>
                     {state.items.length !== 0? (
                         showPlaceOrder ? (
                             state.isPlaceOrders ? (
                                 <button 
-                                    class="bg-[#334155]
-                                        py-2 px-4 
-                                        text-center 
-                                        text-white w-[200px]
-                                        rounded-md 
-                                        md:w-[250px] lg:w-[300px] 
-                                        font-[600]"
+                                    class="w-[160px] h-[40px]
+                                        bg-[#2b2b2b] rounded-md
+                                        text-[14px] font-[600]
+                                        text-center text-white  
+                                        md:w-[235px] lg:w-[280px]
+                                        xl:w-[290px] 2xl:w-[330px]"
                                         onClick={handlePlaceOrder}
                                         >
                                     Place Order
                                 </button>
                             ) : (
                                 <button 
-                                    class="bg-[#334155]
-                                        py-2 px-4 
-                                        text-center 
-                                        text-white w-[200px]
-                                        rounded-md 
-                                        md:w-[250px] lg:w-[300px] 
-                                        font-[600]"
+                                    class="w-[160px] h-[40px]
+                                        bg-[#2b2b2b] rounded-md
+                                        text-[14px] font-[600]
+                                        text-center text-white  
+                                        md:w-[235px] lg:w-[280px]
+                                        xl:w-[290px] 2xl:w-[330px]"
                                         onClick={handleShowPlaceOrder}
                                         >
                                     BacK Cart
@@ -331,13 +341,12 @@ export default function Cartmodal({showCart,closeCart}) {
                             )
                         ):(
                             <button 
-                                class="bg-slate-900 
-                                    py-2 px-4 
-                                    text-center 
-                                    text-white w-[200px]
-                                    rounded-md 
-                                    md:w-[250px] lg:w-[300px] 
-                                    font-[600]"
+                                class="w-[160px] h-[40px]
+                                    bg-[#2b2b2b] rounded-md
+                                    text-[14px] font-[600]
+                                    text-center text-white  
+                                    md:w-[235px] lg:w-[280px]
+                                    xl:w-[290px] 2xl:w-[330px]"
                                     onClick={handleShowPlaceOrder}
                                     >
                                 Check Out 
@@ -345,13 +354,13 @@ export default function Cartmodal({showCart,closeCart}) {
                         )
                     ) : (
                         <button 
-                            class="bg-[#9ca3af]
-                                py-2 px-4 
-                                text-center 
-                                text-white w-[200px]
-                                rounded-md 
-                                md:w-[250px] lg:w-[300px] 
-                                font-[600] cursor-not-allowed"
+                            class="w-[160px] h-[40px]
+                                bg-[#2b2b2b] rounded-md
+                                text-[14px] font-[600]
+                                text-center text-white  
+                                md:w-[235px] lg:w-[280px]
+                                xl:w-[290px] 2xl:w-[330px]
+                                cursor-not-allowed"
                                 >
                             Cart is empty 
                         </button>

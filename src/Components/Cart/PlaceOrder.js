@@ -63,12 +63,15 @@ function PlaceOrder() {
     }
 
     return (
-        <form onSubmit={handlePlaceOrder}>
+        <form className="w-[90%] h-[100%] lg:mx-2 lg:p-5 lg:rounded-md
+            lg:border-solid lg:border-2 lg:border-[#f1f5f9]
+            lg:shadow-lg lg:shadow-state-200/50 md:h-[600px]" 
+            onSubmit={handlePlaceOrder}>
             <div className="w-[100%] flex flex-col items-start mb-[5px]">
-                <h4 className="font-bold text-[14px] mb-[5px]">Name* :</h4>
+                <h4 className="font-bold text-[12px] mb-[5px]">Name* :</h4>
                 <input 
                     className="w-[100%] h-[40px] 
-                        text-[14px] mb-[3.5px] 
+                        text-[12px] mb-[3.5px] 
                         border-solid border-2 px-2
                         border-slate-200 rounded-md" 
                     type="text"
@@ -78,10 +81,10 @@ function PlaceOrder() {
                 />
             </div>
             <div className="w-[100%] flex flex-col items-start mb-[5px]">
-                <h4 className="font-bold text-[14px] mb-[5px]">Mobile Number* :</h4>
+                <h4 className="font-bold text-[12px] mb-[5px]">Mobile Number* :</h4>
                 <input 
                     className="w-[100%] h-[40px] 
-                        text-[14px] mb-[3.5px] 
+                        text-[12px] mb-[3.5px] 
                         border-solid border-2 px-2
                         border-slate-200 rounded-md"
                     type="text"
@@ -91,10 +94,10 @@ function PlaceOrder() {
                 />
             </div>
             <div className="w-[100%] flex flex-col items-start mb-[5px]">
-                <h4 className="font-bold text-[14px] mb-[5px]">Your Address* :</h4>
+                <h4 className="font-bold text-[12px] mb-[5px]">Your Address* :</h4>
                 <input 
                     className="w-[100%] h-[40px] 
-                        text-[14px] mb-[3.5px] 
+                        text-[12px] mb-[3.5px] 
                         border-solid border-2 px-2
                         border-slate-200 rounded-md"
                     type="text"
@@ -104,10 +107,10 @@ function PlaceOrder() {
                 />
             </div>
             <div className="w-[100%] flex flex-col items-start mb-[5px]">
-                <h4 className="font-bold text-[14px] mb-[5px]">Email (Optional) :</h4>
+                <h4 className="font-bold text-[12px] mb-[5px]">Email (Optional) :</h4>
                 <input 
                     className="w-[100%] h-[40px] 
-                        text-[14px] mb-[3.5px] 
+                        text-[12px] mb-[3.5px] 
                         border-solid border-2 px-2
                         border-slate-200 rounded-md"
                     type="text"
@@ -117,10 +120,10 @@ function PlaceOrder() {
                 />
             </div>
             <div className="w-[100%] flex flex-col items-start mb-[5px]">
-                <h4 className="font-bold text-[14px] mb-[5px]">Password* :</h4>
+                <h4 className="font-bold text-[12px] mb-[5px]">Password* :</h4>
                 <input 
                     className="w-[100%] h-[40px] 
-                        text-[14px] mb-[3.5px] 
+                        text-[12px] mb-[3.5px] 
                         border-solid border-2 px-2
                         border-slate-200 rounded-md"
                     type="password"
@@ -130,10 +133,10 @@ function PlaceOrder() {
                 />
             </div>
             <div className="w-[100%] flex flex-col items-start mb-[5px]">
-                <h4 className="font-bold text-[14px] mb-[5px]">Discount Code (Optional) :</h4>
+                <h4 className="font-bold text-[12px] mb-[5px]">Discount Code (Optional) :</h4>
                 <input 
                     className="w-[100%] h-[40px] 
-                        text-[14px] mb-[3.5px] 
+                        text-[12px] mb-[3.5px] 
                         border-solid border-2 px-2
                         border-slate-200 rounded-md"
                     type="text"
