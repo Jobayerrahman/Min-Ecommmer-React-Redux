@@ -25,7 +25,7 @@ export default function Product({cetagory,isItem}){
             {errors && <h2>{errors.message}</h2>}
             {!isItem ? (
                 <div className="productListWrapper">
-                {products && products.slice(0, 12).map((product)=>{
+                {products && products.slice(0, 8).map((product)=>{
                     return (<div key={product.id}>
                         <Productcard {...product} />
                     </div>)
