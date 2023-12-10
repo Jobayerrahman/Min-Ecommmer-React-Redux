@@ -1,4 +1,4 @@
-import { Loading, ERROR, PRODUCTSVIEWED, NEXTPRODUCT, PREVIOUSPRODUCT } from "./actionIdentifire";
+import { Loading, ERROR, PRODUCTSVIEWED } from "./actionIdentifire";
 import initialState from "./initialState";
 
 const reducer = (state=initialState, action) =>{
@@ -24,17 +24,7 @@ const reducer = (state=initialState, action) =>{
                 products :[],
                 errors   :action.payload
             }
-
-        case NEXTPRODUCT:
-            return{
-                ...state,
-                isLoading: false,
-                element: state.originalList.shift(),
-                nextList: state.nextList.push(state.element),
-                errors:null
-            }
         
-    
         default:
             return state;
     }

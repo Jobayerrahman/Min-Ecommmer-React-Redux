@@ -1,4 +1,4 @@
-import { PRODUCTSVIEWED, ERROR, Loading, NEXTPRODUCT, PREVIOUSPRODUCT } from "./actionIdentifire";
+import { PRODUCTSVIEWED, ERROR, Loading} from "./actionIdentifire";
 
 
 
@@ -19,17 +19,5 @@ export const viewed = (view) =>{
     return{
         type: PRODUCTSVIEWED,
         payload: view
-    }
-}
-
-export const nextProduct = () =>{
-    return{
-        type:NEXTPRODUCT,
-    }
-}
-
-export const previousProduct = () =>{
-    return{
-        type:PREVIOUSPRODUCT,
     }
 }

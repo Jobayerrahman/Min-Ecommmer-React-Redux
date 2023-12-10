@@ -57,8 +57,6 @@ function BookingForm({onShowTable}) {
         }
     }
 
-    console.log(state);
-
     return (
         <form onSubmit={handleTableBook}>
             <div className="w-[100%] flex flex-col items-start mb-[5px]">
