@@ -37,6 +37,15 @@ function Topnavigation(props) {
     }
 
     useEffect(()=>{ window.addEventListener('scroll', onScroll); },[])
+    
+    useEffect(()=>{
+        if(window>100){
+            setNavigationStyle("navigationScrollWrapper");
+        }
+        else if(window<100){
+            setNavigationStyle("navigationWrapper");
+        }
+    },[])
 
     return (
         <div>
@@ -49,10 +58,11 @@ function Topnavigation(props) {
                 <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     {/* <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button> */}
                     <a className='flex justify-center items-center
-                            bg-trasparnt text-white
-                            border-2 border-gray-50 
-                            text-[14px] font-[500] font-serif 
-                            min-w-[150px] max-w-[150px] p-2 rounded
+                            p-2 bg-trasparnt text-white font-serif
+                            border-2 border-gray-50 text-[12px]
+                            md:text-[14px] font-[500] min-w-[120px] 
+                            min-w-[120px] md:min-w-[150px] 
+                            md:max-w-[150px] rounded
                             hover:cursor-pointer color-animatedBtn'
                         onClick={state.cartSlice.items.length !== 0? handleCart : handleUser }>
                             {state.cartSlice.items.length !== 0 ? 'My Cart' : 'Order Now' }

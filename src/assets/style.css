@@ -373,6 +373,24 @@ body{
     }
 }
 
+
+
+@media only screen and (max-width: 768px) {
+    .topTitle{
+        font-size: 36px;
+    }
+    
+    .topSubTitle{
+        font-size: 22px;
+    }
+    
+    .bannerButton{
+        min-width: 130px;
+        max-width: 130px;
+        font-size: 14px;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .navigationWrapper{
         padding: 20px;
@@ -414,6 +432,36 @@ body{
 }
 
 @media only screen and (max-width: 390px) {
+    .navigationTitle{
+        font-size: 28px;
+    }
+
+    .topFixBanner{
+        min-height: 450px;
+    }
+    
+    .topBannerOverlay{
+        min-height: 450px;
+    }
+
+    .topBannerContent{
+        min-height: 450px;
+    }
+
+    .topTitle{
+        font-size: 30px;
+    }
+    
+    .topSubTitle{
+        font-size: 18px;
+    }
+    
+    .bannerButton{
+        min-width: 120px;
+        max-width: 120px;
+        font-size: 12px;
+    }
+
     .productCardWrapper{
         width: 9.35rem;
         height: 14rem;
@@ -449,5 +497,20 @@ body{
         margin: 8px;
         padding: 5px;
         border-radius: 20px;
+    }
+
+    .cetagoryCardWrapper{
+        width: 3.6rem;
+        height: 4.5rem;
+    }
+    .cetagoryCardContent{
+        width: 3.6rem;
+        height: 4.5rem;
+    }
+    .cetagoryCardContent h2{
+        font-size: 10px;
+    }
+    .cetagoryCardContent span{
+        font-size: 9px;
     }
 }

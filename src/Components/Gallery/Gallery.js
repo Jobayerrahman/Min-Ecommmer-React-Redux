@@ -1,5 +1,4 @@
-import axios from "axios"; 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const initialImageState=[
     {
@@ -46,20 +45,14 @@ const initialImageState=[
 
 function Gallery() {
     const [ images, setImages ] = useState(initialImageState);
-
-    // useEffect(()=>{
-    //     axios.get("https://restorajsondata.onrender.com/Restora_Foods_Gallery").then((response) => {
-    //         const result = response.data;
-    //         setImages(result);
-    //         });
-    // })
     
     return (
         <div>
             <div className='relative flex flex-row flex-wrap mb-4'>
                 <div className='absolute min-h-[100%] w-[100%] bg-[#000] opacity-50'></div>
                 {images.map((img)=>
-                    <img key={img.id} className='w-[150px] h-[200px]
+                    <img key={img.id} className='w-[70px] h-[100px]
+                            md:w-[150px] h-[200px]
                             grow object-cover
                             md:grow-0
                             md:basis-1/2
