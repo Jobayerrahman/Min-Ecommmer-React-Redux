@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import searchTableDispatcher from "../../Redux/TableSlice/Dispatcher/searchTableDispatcher";
 
 function BookedSearch({onShowTable}) {
