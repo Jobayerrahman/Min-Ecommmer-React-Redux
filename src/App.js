@@ -61,9 +61,9 @@ function App() {
         <TopBanner/>
         <Cetagory all={handleAllItem} burger={handleBurgerItem} pastry={handlePastryItem} pizza={handlePizzaItem} sandwich={handleSandwichItem} />
         <Product  cetagory={itemCetagory} isItem={isItems} />
+        <ProductCarousel/>
         <Gallery/>
         <BookTable/>
-        <ProductCarousel/>
         <Footer/>
         <ToastContainer />
       </div>

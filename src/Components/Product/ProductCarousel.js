@@ -52,14 +52,14 @@ function ProductCarousel() {
 
     return (
         <div className='mx-2 my-10 px-[10px] py-[20px] h-[auto]
-                content-start bg-white 
+                content-start bg-white
                 shadow-lg shadow-state-500/50
                 md:my-15 md:p-[20px] md:mx-[120px] 
-                2md:mx-[220px] lg:mx-[100px] 
+                2md:mx-[180px] lg:mx-[100px] 
                 xl:mx-[330px] 2xl:mx-[450px]'>
-                <div className='flex justify-between mx-8 mb-10'>
-                    <h2 className='text-[14px] font-[700] 2xl:text-[32px]'>Flash Sales</h2>
-                    <h4 className='text-[14px] font-[500] 2xl:text-[28px]'>20:30:60</h4>
+                <div className='flex justify-between mx-8 mb-5 2xl:mb-10'>
+                    <h2 className='text-[14px] font-[700] md:text-[22px] 2xl:text-[32px]'>Flash Sales</h2>
+                    <h4 className='text-[14px] font-[500] md:text-[22px] 2xl:text-[28px]'>20:30:60</h4>
                 </div>
                 {isLoading? (
                         <SkeletonProductCarousel/> 
@@ -70,7 +70,8 @@ function ProductCarousel() {
                                 className={`${nextList.length === 0 ? "hidden" : "block"} text-[20px] font-[600] 
                                 text-[#94a3b8]
                                 lg:text-[25px]
-                                2xl:text-[30px]`} 
+                                2xl:text-[30px]
+                                cursor-pointer`} 
                                 icon={faCircleArrowLeft} 
                                 onClick={handlePrevious}
                                 />
@@ -78,7 +79,8 @@ function ProductCarousel() {
                                 className={`${originalList.length === 1 ? "hidden" : "block"} text-[20px] font-[600] 
                                 text-[#94a3b8]
                                 lg:text-[25px]
-                                2xl:text-[30px] `}
+                                2xl:text-[30px] 
+                                cursor-pointer`}
                                 icon={faCircleArrowRight} 
                                 onClick={handleNext}
                                 />
