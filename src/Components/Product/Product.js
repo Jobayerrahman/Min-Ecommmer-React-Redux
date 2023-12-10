@@ -18,14 +18,14 @@ export default function Product({cetagory,isItem}){
         <div className="productsWrapper">
             <h2 className="text-slate-950 font-bold text-[32px] mb-10">Taste Our Products</h2>
             <div className="productListWrapper">
-                {isLoading && [...Array(8).keys()].map(i => {
+                {isLoading && [...Array(12).keys()].map(i => {
                     return <SkeletonCard key={i} />
                 })}
             </div>
             {errors && <h2>{errors.message}</h2>}
             {!isItem ? (
                 <div className="productListWrapper">
-                {products && products.slice(0, 8).map((product)=>{
+                {products && products.slice(0, 12).map((product)=>{
                     return (<div key={product.id}>
                         <Productcard {...product} />
                     </div>)

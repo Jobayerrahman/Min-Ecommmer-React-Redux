@@ -1,8 +1,9 @@
+import { toast } from 'react-toastify';
 import React, { useState } from 'react';
+import Deletemodal from '../Modal/Deletemodal';
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer, toast } from 'react-toastify';
+import { closeSearchInfo } from '../../Redux/TableSlice/action';
 import updateBookingInfoDispatcher from '../../Redux/TableSlice/Dispatcher/updateBookingInfoDispatcher';
-import deleteBookingInfoDispatcher from "../../Redux/TableSlice/Dispatcher/deleteBookingInfoDispatcher";
 
 function BookedSearchInfo() {
     const dispatch = useDispatch();
@@ -14,15 +15,22 @@ function BookedSearchInfo() {
     const [ tableNumber, setTableNumber ] = useState(state.searchBookedInfos.table);
     const [ member, setMember ] = useState(state.searchBookedInfos.member);
     const [ time, setTime ] = useState(state.searchBookedInfos.time);
+    const [showDeleteModal,setShowDeleteModal] = useState(false);
+
+    const handleDeleteModal = () =>{
+        setShowDeleteModal(true);
+    }    
+
+    const handleCloseDelete = () =>{
+        setShowDeleteModal(false);
+    }
 
     const handleEdit = () =>{
         setIsEdit(!isEdit);
     }
 
-    const handleDelete = (bookedId) =>{
-        dispatch(deleteBookingInfoDispatcher(bookedId));
-        setIsEdit(!isEdit);
-        toast.warning("Booking Information is deleted!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+    const handleDisplayClose = () =>{
+        dispatch(closeSearchInfo())
     }
 
     const handleFormInput = (e) =>{
@@ -48,21 +56,21 @@ function BookedSearchInfo() {
         e.preventDefault();
         if(bookingName !== '' && mobile !== '' && tableNumber !== '' && member !== '' && time !== ''){
             if(isNaN(mobile)){
-                toast.error("Mobile field must be number!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+                toast.error("Mobile field must be number!", {position: toast.POSITION.TOP_RIGHT, className: "toast-message"} );
             }else{
                 const updatedInfo = {id:state.searchBookedInfos.id, name: bookingName, mobile: mobile, table: tableNumber, member: member, time: time};
                 dispatch(updateBookingInfoDispatcher(updatedInfo));
-                toast.success("Table booking update successfully!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+                toast.success("Table booking update successfully!", {position: toast.POSITION.TOP_RIGHT, className: "toast-message"} );
             }
         }else{
-            toast.error("Field can not be empty!", {position: toast.POSITION.BOTTOM_RIGHT,} );
+            toast.error("Field can not be empty!", {position: toast.POSITION.TOP_RIGHT, className: "toast-message"} );
         }
         setIsEdit(!isEdit);
     }
 
     return (
-        <div className='w-[100%]'>
-            <table className="mt-3 bg-[#e2e8f0] w-[100%] h-[auto] p-5 rounded-md md:w-[450px] lg:w-[500px]">
+        <div className={`block w-[100%] flex justify-center`}>
+            <table className="mt-3 bg-[#e2e8f0] w-[450px] h-[auto] p-5 rounded-md md:w-[450px] lg:w-[450px]">
                 <tr className="flex justify-start items-center w-[100%] py-2">
                     <td className='w-[100px]'>
                         <h2 className="text-[16px] font-[700] mx-4">Name:</h2>
@@ -208,11 +216,11 @@ function BookedSearchInfo() {
                         </button>):
                         (<button 
                             className="p-2 mx-2 mb-2 
-                                w-[130px] text-white
+                                w-[100px] text-white
                                 bg-[#facc15]  rounded-md 
                                 font-bold text-[14px] 
                                 hover:bg-[#eab308] 
-                                md:w-[170px] lg:w-[200px]"
+                                md:w-[170px] lg:w-[150px]"
                                 onClick={handleEdit}>
                              Edit Data
                         </button>
@@ -229,30 +237,36 @@ function BookedSearchInfo() {
                                 md:w-[170px] lg:w-[200px]"
                             onClick={handleEdit}>
                             Cancle
-                        </button>):(<button 
-                            className="p-2 mx-2 mb-2 
-                                w-[130px] text-white
-                                bg-[#dc2626]  rounded-md 
-                                font-bold text-[14px] 
-                                hover:bg-[#b91c1c] 
-                                md:w-[170px] lg:w-[200px]"
-                            onClick={()=>handleDelete(state.searchBookedInfos.id)}>
-                            Delete
-                        </button>)}
+                        </button>):(
+                        <div className='flex'>
+                            <button 
+                                className="p-2 mx-2 mb-2 
+                                    w-[100px] text-white
+                                    bg-[#dc2626]  rounded-md 
+                                    font-bold text-[14px] 
+                                    hover:bg-[#b91c1c] 
+                                    md:w-[170px] lg:w-[150px]"
+                                onClick={handleDeleteModal}>
+                                Delete
+                            </button>
+                            <button 
+                                className="p-2 mx-2 mb-2 
+                                    w-[100px] text-white
+                                    bg-[#020202]  rounded-md 
+                                    font-bold text-[14px] 
+                                    hover:bg-[#eab308] 
+                                    md:w-[170px] lg:w-[150px]"
+                                    onClick={handleDisplayClose}>
+                                Close
+                            </button>
+                        </div>
+                        )}
                     </td>
                 </tr>
             </table>
+            <Deletemodal showDelete={showDeleteModal} closeDelete={handleCloseDelete} bookingId={state.searchBookedInfos.id}/>
         </div>
     );
 }
 
 export default BookedSearchInfo;
-
-
-
-{/* <div className="mt-3 bg-[#e2e8f0] 
-        w-[100%] h-[auto] 
-        p-5 rounded-md text-center
-        md:w-[450px] lg:w-[500px]">
-    <h2 className="font-[24px] font-[700] mx-4">No Information Available</h2>
-</div> */}

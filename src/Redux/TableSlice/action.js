@@ -1,4 +1,4 @@
-import { TABLELOADED, TABLEBOOKED, TABLEUPDATED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO, BOOKINGLOADED } from './actionIdentifire';
+import { TABLELOADED, TABLEBOOKED, TABLEUPDATED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO, BOOKINGLOADED, CLOSESEARCH } from './actionIdentifire';
 
 
 export const added = (BookedInfo) =>{
@@ -52,6 +52,12 @@ export const searchBookedTable = (searchInfo,availableData) =>{
             info: searchInfo,
             isDataAvailable: availableData
         }
+    }
+}
+
+export const closeSearchInfo = () =>{
+    return{
+        type: CLOSESEARCH,
     }
 }
 

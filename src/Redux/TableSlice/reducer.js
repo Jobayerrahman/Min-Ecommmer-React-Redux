@@ -1,4 +1,4 @@
-import { TABLELOADED, TABLEBOOKED, TABLEUPDATED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO, BOOKINGLOADED } from "./actionIdentifire";
+import { TABLELOADED, TABLEBOOKED, TABLEUPDATED, TABLETIME, TABLESEARCH, DELETEBOOKEDINFO, BOOKINGLOADED, CLOSESEARCH } from "./actionIdentifire";
 import initialState from "./initialState";
 
 
@@ -86,6 +86,13 @@ const reducer = (state = initialState, action) =>{
                 ...state,
                 isDataAvailable: action.payload.isDataAvailable,
                 searchBookedInfos: action.payload.info
+            }
+
+        case CLOSESEARCH:
+            return {
+                ...state,
+                isDataAvailable: false,
+                searchBookedInfos: {}
             }
 
         case DELETEBOOKEDINFO:

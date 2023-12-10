@@ -15,7 +15,7 @@ function BookedSearch({onShowTable}) {
     const handleSearch = (e) =>{
         e.preventDefault();
         if(isNaN(searchedInfo)){
-            toast.error("Please enter your mobile number.", {position: toast.POSITION.BOTTOM_RIGHT} );
+            toast.error("Please enter your mobile number.", {position: toast.POSITION.TOP_RIGHT, className: "toast-message"});
         }else{
             dispatch(searchTableDispatcher(searchedInfo));
         }

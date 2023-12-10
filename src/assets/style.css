@@ -413,12 +413,12 @@ body{
     }
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 390px) {
     .productCardWrapper{
-        width: 10rem;
+        width: 9.35rem;
         height: 14rem;
         margin: 5px;
-        padding: 10px;
+        padding: 7px;
     }
     
     .productImage{

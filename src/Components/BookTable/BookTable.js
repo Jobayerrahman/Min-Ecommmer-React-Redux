@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import filterTimeTableDispatcher from "../../Redux/TableSlice/Dispatcher/filterTimeTableDispatcher";
 import BookingForm from "./BookingForm";
+import React, { useState } from "react";
 import BookedSearch from "./BookedSearch";
 import BookedSearchInfo from "./BookedSearchInfo";
+import { useDispatch, useSelector } from "react-redux";
+import filterTimeTableDispatcher from "../../Redux/TableSlice/Dispatcher/filterTimeTableDispatcher";
 
 export default function BookTable(){
     const dispatch = useDispatch();
@@ -22,8 +22,10 @@ export default function BookTable(){
     return(
         <div className="my-[40px] h-[auto] p-[20px] 
                 text-center bg-white 
-                shadow-lg shadow-indigo-500/50  
-                md:mx-[50px] md:h-[auto]  xl:h-[650px] xl:mx-[200px]">
+                shadow-lg shadow-state-500/50  
+                md:mx-[50px] md:h-[auto]  
+                xl:h-[650px] xl:mx-[200px]
+                2xl:mx-[450px]">
             <h2 className="font-bold text-[32px] mb-4">Reserve A Table</h2>
             <div className="flex flex-wrap justify-stretch 
                     lg:flex-nowrap 
@@ -54,7 +56,7 @@ export default function BookTable(){
                                 <option value="10:00pm">10:00 pm</option>
                             </select>
                         </div>
-                        <div className="flex justify-between flex-wrap items-stretch mx-[50px] h-[auto] md: mb-[25px]"> 
+                        <div className="flex justify-between flex-wrap items-stretch mx-[25px] h-[auto] md:mb-[25px] md:mx-[5px] 2md:mx-[50px]"> 
                             {state.tables.map((table)=>(
                                 <div key={table.id} 
                                      className={`w-[80px] h-[25px] 
